@@ -7,7 +7,7 @@ public class Edge {
 	
 	Edge(int t, int w, float f){
 		weight = w;
-		target = t;
+		target = t; 
 		pherormones = f;
 	}
 
