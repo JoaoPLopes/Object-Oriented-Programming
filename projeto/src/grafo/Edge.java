@@ -4,7 +4,7 @@ public class Edge {
 	private int weight;
 	private int target;
 	private float pherormones;
-	
+	   
 	Edge(int t, int w, float f){
 		weight = w;
 		target = t;
