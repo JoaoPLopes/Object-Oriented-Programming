@@ -77,7 +77,7 @@ public class Ant implements Traverser{
 	}
 	
 	
-	public void placingPheroSetEvents(int totalPathWeight, Graph grafo, List<Integer> hamiltonCycle, List<Integer> weights , float plevel, double time_stamp, float mean, PEC pec ) {
+	public void placingPheroSetEvents(int totalPathWeight, List<Integer> hamiltonCycle, List<Integer> weights , float plevel, double time_stamp, float mean, PEC pec )  {
 		int i=0;
 		int j=1;
 		double t=0;

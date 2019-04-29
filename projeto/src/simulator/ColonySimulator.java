@@ -34,7 +34,11 @@ public class ColonySimulator {
 	static EvAnt_Move EventMoveClass;
 	static EvPhero_Evap EventEvapClass;
 	static SaxParser MySax = new SaxParser();
+	static final int SPACEDVALUES =20;
+	static double reportincrements;
+	
 
+	
 
 	static double time;
 	
@@ -45,7 +49,6 @@ public class ColonySimulator {
 		
 		Data dados = MySax.MySaxParser("data1.xml"); 
 		
-		System.out.println("LOLL");
 		grafo = new Graph(dados.getNbNodes());
 		delta = dados.getMove().getDelta();
 		nest = dados.getNest();
@@ -55,8 +58,11 @@ public class ColonySimulator {
 		beta = dados.getMove().getbeta();
 		simTime = dados.getSimulation().getFinalinst();
 		plevel = dados.getSimulation().getPlevel();
-		antcolsize =1;
-		EventReport report= new EventReport(simTime);
+		antcolsize =200;
+		reportincrements = simTime/SPACEDVALUES;
+		Report report = new Report(reportincrements);
+		
+		
 		int currentpath=0;
 		
 		
@@ -84,7 +90,14 @@ public class ColonySimulator {
 		for (Ant ant: ants)
 			pec.addEvPEC(new EvAnt_Move(Event.expRandom(delta), ant));
 		
+		
+		EvReport evreport = new EvReport(reportincrements);
+				
+			pec.addEvPEC(evreport);
+		
 		Event currentEvent = pec.nextEvPEC();
+		
+		
 		
 		double currentTime = currentEvent.time_stamp;
 		
@@ -98,7 +111,7 @@ public class ColonySimulator {
 				if(ants.get(current_ant).hasHamiltonCycle(nbnodes+1)) {
 					try {
 						currentpath=ants.get(current_ant).bestPath(report.getOptimalCycleWeight() ,ants.get(current_ant).calcWeight(ants.get(current_ant).getPath().getPathWeight()));
-						ants.get(current_ant).placingPheroSetEvents(currentpath, grafo, ants.get(current_ant).getPath().getVisited(), ants.get(current_ant).getPath().getPathWeight(),  plevel, currentTime, mean, pec );
+						ants.get(current_ant).placingPheroSetEvents(currentpath, ants.get(current_ant).getPath().getVisited(), ants.get(current_ant).getPath().getPathWeight(),  plevel, currentTime, mean, pec );
 						if (report.CheckForCycleUpdate(currentpath)) {
 							ants.get(current_ant).getPath().getVisited().remove(nbnodes);
 							ants.get(current_ant).getPath().getPathWeight().remove(nbnodes-1);
@@ -112,26 +125,26 @@ public class ColonySimulator {
 					ants.get(current_ant).removeCycle();
 				}
 				report.updateReport(currentTime, currentEvent);
-				if(report.checkTime(currentTime, simTime))
-					System.out.println(report);
+			}
+			else if (currentEvent instanceof EvPhero_Evap) {
+				currentEvent.simulate();
+				report.updateReport(currentTime, EventEvapClass);
 			}
 			else {
 				currentEvent.simulate();
-				report.updateReport(currentTime, EventEvapClass);
-				if(report.checkTime(currentTime, simTime))
-					System.out.println(report);
+				System.out.println(report);
+				report.updateinstant();
 			}
-				if (!pec.isEmpty()) {
-					currentEvent = pec.nextEvPEC();
-					currentTime = currentEvent.time_stamp;
-				}
-				else
-					currentTime=simTime;
+			if(!pec.isEmpty()) {	
+				currentEvent = pec.nextEvPEC();
+				currentTime = currentEvent.time_stamp;
+			}
 					
 		}
-		if(report.checkTime(currentTime, simTime))
-			System.out.println(report);
-		
+		currentEvent.simulate();
+		System.out.println(report);
+		report.updateinstant();
+		System.out.println(pec);
 	}
 	
 	public static Object deepClone(Object object) {
@@ -148,5 +161,4 @@ public class ColonySimulator {
 	      return null;
 	    }
 	  }
-
 }

@@ -5,27 +5,24 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 // o que é a variavel INSTANT, Não deviamos printar o Hamilton como {1,...5,1}, a ultima ligação conta o peso ??(5,1)
-public class EventReport {
+public class Report {
 	
 	private int cycle_weight;
-	private static final int INTERVALO = 20;
 	private List<Integer> cycle = new LinkedList<>();
-	private List<Double> reporttime = new ArrayList<>();
-	private int controlReportTime;
+	private int instant;
 	private int mevents;
 	private int eevents;
-	private double instant;
+	private double spacedtime;
 	
-	EventReport(double timestamp) {
+	Report(double time) {
 		this.cycle_weight=0;
 		this.eevents = 0;
 		this.mevents=0;
-		this.instant=0.0;
-		this.controlReportTime=0;
-		for (int i=1; i<=INTERVALO ; i++)
-			this.reporttime.add((timestamp*i)/INTERVALO);
-		}
+		this.instant=1;
+		this.spacedtime=time;
+	}
 	
+		
 	public int getOptimalCycleWeight() {
 		
 		return this.cycle_weight;
@@ -47,9 +44,13 @@ public class EventReport {
 		
 	}
 	
+	public void updateinstant() {
+		
+		this.instant ++ ;
+	}
+	
 	public void updateReport(double currenttime, Event current){
 		
-		this.instant = currenttime;
 		if (current instanceof EvAnt_Move ) {
 			this.mevents++;
 		}
@@ -58,20 +59,7 @@ public class EventReport {
 		}
 		
 	}
-	
-	public boolean checkTime(double currenttime, double timestamp) {
-		if (currenttime >= timestamp) {
-			this.controlReportTime= 20;
-			return true;
-		}
-		if (currenttime >= this.reporttime.get(this.controlReportTime) && currenttime < this.reporttime.get(this.controlReportTime+1)) {
-			this.controlReportTime++;
-			return true;
-		}
-		else
-			return false;
-		
-	}
+
 	
 	public boolean CheckForCycleUpdate(int currentpath) {
 		
@@ -90,8 +78,8 @@ public class EventReport {
 	@Override
 	public String toString() {
 		
-		return "Observation " + (this.controlReportTime) + ":\n \t\t"+
-							"Present instant:\t" + this.reporttime.get(this.controlReportTime-1) +
+		return "Observation " + (this.instant) + ":\n \t\t"+
+							"Present instant:\t" + this.instant*this.spacedtime +
 							"\n\t\t" +"Number of move events: \t" + this.mevents +
 							"\n\t\t" +"Number of evaporation events:\t" + this.eevents+
 							"\n\t\t" +"Hamiltonian cycle:\t" + Arrays.toString(cycle.toArray()).replace("[", "{").replace("]", "}").replace(", ", ",");
