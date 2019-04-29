@@ -31,9 +31,9 @@ public class EvAnt_Move extends Event{
 	 */
 	public void simulate() {
 		ant.move();
-		double t = time_stamp + expRandom(mean);
-		if(t<simTime)
-			pec.addEvPEC(new EvAnt_Move(t, ant));
+		double t = time_stamp + expRandom(ColonySimulator.dados.getMove().getDelta());
+		if(t<ColonySimulator.dados.getSimulation().getFinalinst())
+			ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ant));
 		
 	}
 	

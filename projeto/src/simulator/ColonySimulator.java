@@ -18,17 +18,10 @@ import my_java_dom_parser.Weights;
 
 public class ColonySimulator {
 	
-	protected static float simTime;
-	protected static double delta;
-	protected static int nest;
-	protected static int nbnodes;
 	protected static int antcolsize;
-	protected static float plevel;
 	
-	static float alfa;
-	static float beta;
-	static float mean;
 	static Graph grafo;
+	static Data dados;
 	static PEC pec;
 	static List<Ant> ants = new LinkedList<Ant>();
 	static EvAnt_Move EventMoveClass;
@@ -47,19 +40,11 @@ public class ColonySimulator {
 
 	public static void main(String[] args) {
 		
-		Data dados = MySax.MySaxParser("data1.xml"); 
+		dados = MySax.MySaxParser("data1.xml"); 
 		
 		grafo = new Graph(dados.getNbNodes());
-		delta = dados.getMove().getDelta();
-		nest = dados.getNest();
-		nbnodes = dados.getNbNodes();
-		alfa = dados.getMove().getAlpha();
-		mean = dados.getEvaportaion().getEta();
-		beta = dados.getMove().getbeta();
-		simTime = dados.getSimulation().getFinalinst();
-		plevel = dados.getSimulation().getPlevel();
-		antcolsize =200;
-		reportincrements = simTime/SPACEDVALUES;
+		antcolsize =1;
+		reportincrements = dados.getSimulation().getFinalinst()/SPACEDVALUES;
 		Report report = new Report(reportincrements);
 		
 		
@@ -83,12 +68,12 @@ public class ColonySimulator {
 		
 		pec = new PEC();
 
-		for (int i=0; i<antcolsize; i++)
-			ants.add(new Ant(nest, i));
+		for (int i=0; i<dados.getSimulation().getColonySize(); i++)
+			ants.add(new Ant(antcolsize, i));
 
 
 		for (Ant ant: ants)
-			pec.addEvPEC(new EvAnt_Move(Event.expRandom(delta), ant));
+			pec.addEvPEC(new EvAnt_Move(Event.expRandom(dados.getDelta()), ant));
 		
 		
 		EvReport evreport = new EvReport(reportincrements);
@@ -102,19 +87,19 @@ public class ColonySimulator {
 		double currentTime = currentEvent.time_stamp;
 		
 		
-		while (currentTime < simTime) {
+		while (currentTime < dados.getSimulation().getFinalinst()) {
 			
 			if (currentEvent instanceof EvAnt_Move) {
 				currentEvent.simulate();
 				int current_ant = ((EvAnt_Move) currentEvent).getAnt();
 				//System.out.println("current ant : "+ current_ant + " hamilton atual " + report.getHamilton() + "\n");
-				if(ants.get(current_ant).hasHamiltonCycle(nbnodes+1)) {
+				if(ants.get(current_ant).hasHamiltonCycle(dados.getNbNodes()+1)) {
 					try {
 						currentpath=ants.get(current_ant).bestPath(report.getOptimalCycleWeight() ,ants.get(current_ant).calcWeight(ants.get(current_ant).getPath().getPathWeight()));
-						ants.get(current_ant).placingPheroSetEvents(currentpath, ants.get(current_ant).getPath().getVisited(), ants.get(current_ant).getPath().getPathWeight(),  plevel, currentTime, mean, pec );
+						ants.get(current_ant).placingPheroSetEvents(currentpath, ants.get(current_ant).getPath().getVisited(), ants.get(current_ant).getPath().getPathWeight(), currentTime );
 						if (report.CheckForCycleUpdate(currentpath)) {
-							ants.get(current_ant).getPath().getVisited().remove(nbnodes);
-							ants.get(current_ant).getPath().getPathWeight().remove(nbnodes-1);
+							ants.get(current_ant).getPath().getVisited().remove(dados.getNbNodes());
+							ants.get(current_ant).getPath().getPathWeight().remove(dados.getNbNodes()-1);
 							report.setHamilton((List<Integer>) deepClone(ants.get(current_ant).getPath().getVisited()));
 						}
 					}

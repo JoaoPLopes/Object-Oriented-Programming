@@ -10,9 +10,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import simulator.ColonySimulator;
+
 public class SaxParser extends DefaultHandler {
 	
-		static List<Weights> edges; 
+		List<Weights> edges; 
 		Move mov;
 		Evaporation evap;
 		Simulation simul ;
@@ -55,7 +57,6 @@ public class SaxParser extends DefaultHandler {
 		    	
 		if (elementName.equalsIgnoreCase("simulation")) {
 			simul = new Simulation(Float.parseFloat(attributes.getValue("finalinst")),Integer.parseInt(attributes.getValue("antcolsize")),Float.parseFloat(attributes.getValue("plevel")));		
-			System.out.println("SIMULATION" + simul);
 		}
 		
 		if (elementName.equalsIgnoreCase("graph")) {
@@ -85,9 +86,10 @@ public class SaxParser extends DefaultHandler {
 		    
 	public void endElement(String s, String s1, String element) throws SAXException {
 		        // if end of book element add to list
-		if (element.equals("weight")) {
+		if (element.equalsIgnoreCase("weight")) {
 		    tempweight.setWeight(Integer.parseInt(tmpValue));
 		    edges.add(tempweight);
+		    
 		}
 		
 		if (element.equalsIgnoreCase("simulation")) {

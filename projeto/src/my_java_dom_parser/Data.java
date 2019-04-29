@@ -3,44 +3,65 @@ package my_java_dom_parser;
 import java.util.List;
 
 public class Data {
-	private int nbnodes;
-	private int nestnode;
-	private List<Weights> edges;
-	private Move move;
-	private Simulation sim;
-	private Evaporation evap;
+	static int nbnodes;
+	static int nestnode;
+	static List<Weights> edges;
+	static Move move;
+	static Simulation sim;
+	static Evaporation evap;
 	
-	Data(int nb, int nest,List<Weights> ed, Move m, Simulation s, Evaporation e){
-		this.nbnodes = nb;
-		this.nestnode  = nest;
-		this.edges = ed;
-		this.move = m;
-		this.sim = s;
-		this.evap = e;
+	Data(int nb, int nest, List<Weights> ed, Move m, Simulation s, Evaporation e){
+		nbnodes = nb;
+		nestnode  = nest;
+		edges = ed;
+		move = m;
+		sim = s;
+		evap = e;
 	}
 	
 	public int getNbNodes() {
-		return this.nbnodes;
+		return nbnodes;
 	}
 	
 	public int getNest() {
-		return this.nestnode;
+		return nestnode;
 	}
 	
 	public Move getMove() {
-		return this.move;
+		return move;
 	}
 	
 	public Simulation getSimulation() {
-		return this.sim;
+		return sim;
 	}
 	
+	public double getFinalinst() {
+		return getSimulation().getFinalinst();
+	}
+	
+	public double getDelta() {
+		return getMove().getDelta();
+	}
+	
+	public float getpLevel() {
+		return getSimulation().getPlevel();
+	}
+	
+	
 	public Evaporation getEvaportaion() {
-		return this.evap;
+		return evap;
+	}
+	
+	public float getRho() {
+		return getEvaportaion().getRho();
+	}
+	
+	public float getEta() {
+		return getEvaportaion().getEta();
 	}
 	
 	public List<Weights> getEdges(){
-		return this.edges;
+		return edges;
 	}
 	
 	

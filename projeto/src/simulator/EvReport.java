@@ -13,8 +13,8 @@ public class EvReport extends Event {
 	
 	public void simulate() {
 		instant ++;
-		if (!(reportincrements*this.instant > simTime))
-		pec.addEvPEC(new EvReport(reportincrements*this.instant));
+		if (!(reportincrements*instant > ColonySimulator.dados.getSimulation().getFinalinst()))
+			ColonySimulator.pec.addEvPEC(new EvReport(reportincrements*instant));
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import java.util.List;
 
 import exceptions.NonPositive;
 import grafo.Edge;
-import grafo.Graph;
 
 
 /**
@@ -19,9 +18,6 @@ import grafo.Graph;
  */
 public class Ant implements Traverser{
 	private Path path;
-	private Graph grafo;
-	private double alfa;
-	private double beta;
 	private int idx;
 	
 	/**
@@ -32,9 +28,6 @@ public class Ant implements Traverser{
 	 */
 	Ant(int n, int i){
 		path = new Path(n);
-		grafo = ColonySimulator.grafo;
-		alfa = ColonySimulator.alfa;
-		beta = ColonySimulator.beta;
 		idx = i;
 	}
 	
@@ -77,21 +70,21 @@ public class Ant implements Traverser{
 	}
 	
 	
-	public void placingPheroSetEvents(int totalPathWeight, List<Integer> hamiltonCycle, List<Integer> weights , float plevel, double time_stamp, float mean, PEC pec )  {
+	public void placingPheroSetEvents(int totalPathWeight, List<Integer> hamiltonCycle, List<Integer> weights, double time_stamp )  {
 		int i=0;
 		int j=1;
 		double t=0;
 		for (Integer hamiltontemp : hamiltonCycle) {
-			if (i == grafo.getNNodes() )
+			if (i == ColonySimulator.grafo.getNNodes() )
 				return;
-			if ( (grafo.getEdge(hamiltontemp, hamiltonCycle.get(i+1)).getPherormone() == 0) && (grafo.getEdge( hamiltonCycle.get(i+1),hamiltontemp).getPherormone()==0)) {
-				t=time_stamp + Event.expRandom(mean);
-				if (t<ColonySimulator.simTime)
-					pec.addEvPEC(new EvPhero_Evap(t,grafo.getEdge(hamiltontemp, hamiltonCycle.get(i+1)), grafo.getEdge( hamiltonCycle.get(i+1), hamiltontemp)));
+			if ( (ColonySimulator.grafo.getEdge(hamiltontemp, hamiltonCycle.get(i+1)).getPherormone() == 0) && (ColonySimulator.grafo.getEdge( hamiltonCycle.get(i+1),hamiltontemp).getPherormone()==0)) {
+				t=time_stamp + Event.expRandom(ColonySimulator.dados.getEvaportaion().getEta());
+				if (t<ColonySimulator.dados.getSimulation().getFinalinst())
+					ColonySimulator.pec.addEvPEC(new EvPhero_Evap(t,ColonySimulator.grafo.getEdge(hamiltontemp, hamiltonCycle.get(i+1)), ColonySimulator.grafo.getEdge( hamiltonCycle.get(i+1), hamiltontemp)));
 			}
 			
-			grafo.getEdge(hamiltonCycle.get(i), hamiltonCycle.get(i+1)).updatePheromone(plevel*weights.get(j-1)/totalPathWeight);
-			grafo.getEdge(hamiltonCycle.get(i+1), hamiltonCycle.get(i)).updatePheromone(plevel*weights.get(j-1)/totalPathWeight);
+			ColonySimulator.grafo.getEdge(hamiltonCycle.get(i), hamiltonCycle.get(i+1)).updatePheromone(ColonySimulator.dados.getSimulation().getPlevel()*weights.get(j-1)/totalPathWeight);
+			ColonySimulator.grafo.getEdge(hamiltonCycle.get(i+1), hamiltonCycle.get(i)).updatePheromone(ColonySimulator.dados.getSimulation().getPlevel()*weights.get(j-1)/totalPathWeight);
 	
 			i++;
 			j++;
@@ -130,9 +123,9 @@ public class Ant implements Traverser{
 		List<Double> probabilities = new ArrayList<>();
 		List<Edge> nonVisited = new ArrayList<>();
 		
-		for(Edge e: grafo.adjacentEdges(path.getCurrentNode())) {
+		for(Edge e: ColonySimulator.grafo.adjacentEdges(path.getCurrentNode())) {
 			if(!path.getVisited().contains(e.getTarget())) {
-				probabilities.add(e.getCijk(alfa, beta));
+				probabilities.add(e.getCijk(ColonySimulator.dados.getMove().getAlpha(), ColonySimulator.dados.getMove().getbeta()));
 				nonVisited.add(e);
 			}
 		}
@@ -145,10 +138,10 @@ public class Ant implements Traverser{
 			prevNode = path.getCurrentNode();
 			path.setCurrentNode( nonVisited.get(idx).getTarget());
 			path.addVisitedNode((path.getCurrentNode()));
-			path.addPathWeight(grafo.getEdge(prevNode, path.getCurrentNode()).getWeight());
+			path.addPathWeight(ColonySimulator.grafo.getEdge(prevNode, path.getCurrentNode()).getWeight());
 		}else {
-			for(Edge n: grafo.adjacentEdges(this.path.getCurrentNode())) {
-				probabilities.add(n.getCijk(alfa, beta));
+			for(Edge n: ColonySimulator.grafo.adjacentEdges(this.path.getCurrentNode())) {
+				probabilities.add(n.getCijk(ColonySimulator.dados.getMove().getAlpha(), ColonySimulator.dados.getMove().getbeta()));
 				nonVisited.add(n);
 			}
 			probabilities = normProb(probabilities);
@@ -156,9 +149,9 @@ public class Ant implements Traverser{
 			prevNode = path.getCurrentNode();
 			path.setCurrentNode(nonVisited.get(idx).getTarget());
 			path.addVisitedNode((path.getCurrentNode()));
-			path.addPathWeight(grafo.getEdge(prevNode, path.getCurrentNode()).getWeight());
+			path.addPathWeight(ColonySimulator.grafo.getEdge(prevNode, path.getCurrentNode()).getWeight());
 			// If it does not have an Hamilton cycle then the ant should go back
-			if(!this.hasHamiltonCycle(grafo.getNNodes()+1)) {
+			if(!this.hasHamiltonCycle(ColonySimulator.grafo.getNNodes()+1)) {
 				this.removeCycle();
 			}
 		}

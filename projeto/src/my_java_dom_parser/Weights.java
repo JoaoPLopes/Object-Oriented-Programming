@@ -1,29 +1,29 @@
 package my_java_dom_parser;
 
 public class Weights {
-	private int departure;
-	private int arraival;
-	private int weight;
+	int departure;
+	int arraival;
+	int weight;
 	
 	Weights(int d, int a){
-		this.departure = d;
-		this.arraival = a;
+		departure = d;
+		arraival = a;
 	}
 	
 	public int getDeparture() {
-		return this.departure;
+		return departure;
 	}
 	
-	public void setWeight(int weight) {
-		this.weight=weight;
+	public void setWeight(int _weight) {
+		weight=_weight;
 	}
 	
 	public int getArraival() {
-		return this.arraival;
+		return arraival;
 	}
 	
 	public int getWeight() {
-		return this.weight;
+		return weight;
 	}
 
 	@Override
