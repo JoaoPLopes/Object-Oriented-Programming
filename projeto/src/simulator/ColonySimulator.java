@@ -8,7 +8,9 @@ import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import exceptions.EdgeNextMoveException;
 import exceptions.NonPositive;
+import exceptions.WrongXLMvalue;
 import grafo.Graph;
 import my_java_dom_parser.Data;
 import my_java_dom_parser.SaxParser;
@@ -29,67 +31,66 @@ public class ColonySimulator {
 	static SaxParser MySax = new SaxParser();
 	static final int SPACEDVALUES =20;
 	static double reportincrements;
-	
-
-	
-
 	static double time;
-	
-
 	
 
 	public static void main(String[] args) {
 		
-		dados = MySax.MySaxParser("data1.xml"); 
 		
+		dados = MySax.MySaxParser(args[0]); 
+		try {
+			dados.validatedata();
+		} catch (WrongXLMvalue ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+			System.exit(1);
+		}
 		grafo = new Graph(dados.getNbNodes());
-		antcolsize =1;
 		reportincrements = dados.getSimulation().getFinalinst()/SPACEDVALUES;
 		Report report = new Report(reportincrements);
-		
-		
 		int currentpath=0;
 		
-		
-
-		
-		try {
-			for (Weights w :  dados.getEdges()) {
-				grafo.addEdge(w.getDeparture(), w.getArraival(), w.getWeight());
-			}
+		for (Weights w :  dados.getEdges()) {
+			grafo.addEdge(w.getDeparture(), w.getArraival(), w.getWeight());
 		}
-		catch (NonPositive ex) {
-			System.out.println(ex.getMessage());
-			System.exit(2);
+		for ( int i = 1 ; i<=dados.getNbNodes() ; i++) {
+			  
+			if (grafo.adjacentEdges(i).size()<=1 && dados.getNbNodes()>2) {
+				System.out.println("For the current graph there are no hamilton cycles");
+				System.exit(6);
+			}	
 		}
-		
-		
 		
 		
 		pec = new PEC();
 
 		for (int i=0; i<dados.getSimulation().getColonySize(); i++)
-			ants.add(new Ant(antcolsize, i));
+			ants.add(new Ant(dados.getNest(), i));
 
+		try {
+			for (Ant ant: ants) {	
+				ant.predictnext();
+				pec.addEvPEC(new EvAnt_Move(Event.expRandom(dados.getDelta()* ant.getPath().getAssociatedWeight()), ant));	
+			}
+		}
+		catch (EdgeNextMoveException ex) {
+			System.out.println(ex.getMessage());
+			System.exit(3);
+		}
 
-		for (Ant ant: ants)
-			pec.addEvPEC(new EvAnt_Move(Event.expRandom(dados.getDelta()), ant));
 		
 		
 		EvReport evreport = new EvReport(reportincrements);
-				
-			pec.addEvPEC(evreport);
+		pec.addEvPEC(evreport);
 		
 		Event currentEvent = pec.nextEvPEC();
 		
-		
-		
 		double currentTime = currentEvent.time_stamp;
-		
 		
 		while (currentTime < dados.getSimulation().getFinalinst()) {
 			
 			if (currentEvent instanceof EvAnt_Move) {
+				
 				currentEvent.simulate();
 				int current_ant = ((EvAnt_Move) currentEvent).getAnt();
 				//System.out.println("current ant : "+ current_ant + " hamilton atual " + report.getHamilton() + "\n");
@@ -107,7 +108,19 @@ public class ColonySimulator {
 						System.out.println("Path weight cannot be negative");
 						System.exit(1);
 					}
-					ants.get(current_ant).removeCycle();
+					ants.get(current_ant).getPath().removeCycle();
+					
+					try {
+					ants.get(current_ant).predictnext();
+					}
+					catch (EdgeNextMoveException ex) {
+						System.out.println(ex.getMessage());
+						System.exit(-1);
+					}
+					double t = currentTime + Event.expRandom(ColonySimulator.dados.getMove().getDelta() * ants.get(current_ant).getPath().getAssociatedWeight() );
+						if(t<ColonySimulator.dados.getSimulation().getFinalinst())
+							ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ants.get(current_ant)));
+					
 				}
 				report.updateReport(currentTime, currentEvent);
 			}

@@ -41,7 +41,7 @@ public abstract class Event implements DicreteEvent{
 	 * @see java.lang.Object#equals()
 	 */
 
-	
+	 
 	/**
 	 * Static method used to generate random time stamps for the newly created events according 
 	 * to an exponential distribution

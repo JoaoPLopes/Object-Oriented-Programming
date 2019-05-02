@@ -1,12 +1,14 @@
 package simulator;
 
+import exceptions.EdgeNextMoveException;
+
 /**
  * Class: EvAnt_Move.java
  * 
  * @author Joao Lopes
  *
  */
-
+ 
 public class EvAnt_Move extends Event{
 	
 	protected Ant ant;
@@ -30,11 +32,20 @@ public class EvAnt_Move extends Event{
 	 * As a result of this simulation another event ant move is added to the  PEC
 	 */
 	public void simulate() {
-		ant.move();
-		double t = time_stamp + expRandom(ColonySimulator.dados.getMove().getDelta());
-		if(t<ColonySimulator.dados.getSimulation().getFinalinst())
-			ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ant));
 		
+		ant.move();
+		if(!ant.hasHamiltonCycle(ColonySimulator.dados.getNbNodes()+1)) {
+			try {
+				ant.predictnext();
+			}
+			catch (EdgeNextMoveException ex) {
+				System.exit(-1);
+			}
+			
+			double t = time_stamp + expRandom(ColonySimulator.dados.getMove().getDelta() * ant.getPath().getAssociatedWeight() );
+			if(t<ColonySimulator.dados.getSimulation().getFinalinst())
+				ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ant));
+		}
 	}
 	
 	/**

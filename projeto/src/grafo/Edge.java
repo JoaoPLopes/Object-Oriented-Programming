@@ -32,7 +32,7 @@ public class Edge {
 	}
 	
 	public double getCijk(double alfa, double beta) {
-		return (alfa+this.getPherormone())/(beta+this.getWeight());
+		return (alfa+this.getPherormone())/(beta+this.getWeight()); 
 	}
 	
 	@Override

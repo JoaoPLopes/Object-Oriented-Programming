@@ -14,6 +14,7 @@ public interface Traverser {
 	
 	/**
 	 * move the traverser from the current node to the next node
+	 * @return 
 	 *
 	 */
 	public void move();

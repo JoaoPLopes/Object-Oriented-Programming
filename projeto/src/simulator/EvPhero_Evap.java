@@ -16,8 +16,8 @@ public class EvPhero_Evap extends Event {
 	public void simulate() {
 			
 		direction1edge.updatePheromone(-ColonySimulator.dados.getEvaportaion().getRho());
-		direction2edge.updatePheromone(-ColonySimulator.dados.getEvaportaion().getRho());
-	
+		direction2edge.updatePheromone(-ColonySimulator.dados.getEvaportaion().getRho()); 
+	 
 		if (direction1edge.getPherormone() <=0) {
 			direction1edge.setPherormone(0);
 			direction2edge.setPherormone(0);

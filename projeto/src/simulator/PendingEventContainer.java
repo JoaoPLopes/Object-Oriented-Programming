@@ -10,7 +10,7 @@ package simulator;
  */
 
 public interface PendingEventContainer {
-	
+	 
 	/**
 	 * Add an event to the Event Container
 	 * @param event the event to be added

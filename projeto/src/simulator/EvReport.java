@@ -10,7 +10,7 @@ public class EvReport extends Event {
 		super(time);
 		reportincrements = ColonySimulator.reportincrements;
 	}
-	
+	 
 	public void simulate() {
 		instant ++;
 		if (!(reportincrements*instant > ColonySimulator.dados.getSimulation().getFinalinst()))

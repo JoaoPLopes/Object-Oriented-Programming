@@ -12,7 +12,7 @@ public class Report {
 	private int mevents;
 	private int eevents;
 	private double spacedtime;
-	
+	 
 	Report(double time) {
 		this.cycle_weight=0;
 		this.eevents = 0;

@@ -16,7 +16,7 @@ public class PEC implements PendingEventContainer {
 	
 	PriorityQueue<Event> evQueue = new PriorityQueue<Event>(1, new Comparador());
 	
-	
+	 
 	/**
 	 * Constructs a PEC
 	 */

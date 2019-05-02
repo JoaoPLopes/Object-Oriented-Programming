@@ -6,5 +6,4 @@ public class NonPositive extends Exception {
 		super(message);
 	}
 	
-	
-}
+} 
