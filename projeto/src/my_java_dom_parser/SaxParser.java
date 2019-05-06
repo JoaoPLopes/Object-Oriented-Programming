@@ -12,7 +12,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class SaxParser extends DefaultHandler {
 	
-		static List<Weights> edges; 
+		List<Weights> edges; 
 		Move mov;
 		Evaporation evap;
 		Simulation simul ;
@@ -21,11 +21,12 @@ public class SaxParser extends DefaultHandler {
 		Weights tempweight;
 		String nodeindex;
 		String tmpValue;
-		int nbnodes, nest_node;
+		int nbnodes, nest_node, graphtotalweight;
 		
 		public SaxParser() {};
 		
 	public Data MySaxParser(String xmlFileName) {
+		
 	        this.xmlFileName = xmlFileName;
 	        edges = new ArrayList<Weights>();
 	        parseDocument();
@@ -50,18 +51,15 @@ public class SaxParser extends DefaultHandler {
 	
 		    
 	public void startElement(String s, String s1, String elementName, Attributes attributes) throws SAXException {
-		        // if current element is book , create new book
-		        // clear tmpValue on start of element
 		    	
 		if (elementName.equalsIgnoreCase("simulation")) {
 			simul = new Simulation(Float.parseFloat(attributes.getValue("finalinst")),Integer.parseInt(attributes.getValue("antcolsize")),Float.parseFloat(attributes.getValue("plevel")));		
-			System.out.println("SIMULATION" + simul);
 		}
 		
 		if (elementName.equalsIgnoreCase("graph")) {
 		    nbnodes = Integer.parseInt(attributes.getValue("nbnodes"));
 		    nest_node = Integer.parseInt(attributes.getValue("nestnode"));
-		}
+		} 
 		    	
 		if (elementName.equalsIgnoreCase("move")) {
 
@@ -85,13 +83,16 @@ public class SaxParser extends DefaultHandler {
 		    
 	public void endElement(String s, String s1, String element) throws SAXException {
 		        // if end of book element add to list
-		if (element.equals("weight")) {
+		if (element.equalsIgnoreCase("weight")) {
 		    tempweight.setWeight(Integer.parseInt(tmpValue));
+		    graphtotalweight+=Integer.parseInt(tmpValue);
 		    edges.add(tempweight);
+		    
 		}
 		
 		if (element.equalsIgnoreCase("simulation")) {
 		    grafo = new Data(nbnodes, nest_node, edges, mov,  simul , evap);
+		    grafo.addGraphWeight(graphtotalweight);
 		}
 		        
 

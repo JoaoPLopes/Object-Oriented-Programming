@@ -15,20 +15,24 @@ public class EvPhero_Evap extends Event {
 
 	public void simulate() {
 			
-		direction1edge.updatePheromone(-plevel);
-		direction2edge.updatePheromone(-plevel);
-	
+		direction1edge.updatePheromone(-ColonySimulator.dados.getRho());
+		direction2edge.updatePheromone(-ColonySimulator.dados.getRho()); 
+	 
 		if (direction1edge.getPherormone() <=0) {
 			direction1edge.setPherormone(0);
 			direction2edge.setPherormone(0);
 			return ;
 		}
 	
-		double t = time_stamp + expRandom(mean);
-		if (t<simTime)
-			pec.addEvPEC(new EvPhero_Evap(t, this.direction1edge , this.direction2edge ));
+		double t = time_stamp + expRandom(ColonySimulator.dados.getEta());
+		if (t<ColonySimulator.dados.getFinalinst())
+			ColonySimulator.pec.addEvPEC(new EvPhero_Evap(t, this.direction1edge , this.direction2edge ));
 		
 			
+	}
+	
+	public double getTimeStamp() {
+		return this.time_stamp;
 	}
 
 	@Override
@@ -40,4 +44,3 @@ public class EvPhero_Evap extends Event {
 	
 
 	
-

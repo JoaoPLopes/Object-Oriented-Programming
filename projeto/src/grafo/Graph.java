@@ -3,7 +3,6 @@ package grafo;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import exceptions.NonPositive;
 
 /**
  * Class: Graph.java
@@ -35,6 +34,7 @@ public class Graph implements WeightedGraph {
 		}
 	}
 	
+	
 	/**
 	 * This method adds an edge connecting two nodes of the graph. Sets the connection between the
 	 * nodes with weight w
@@ -42,25 +42,24 @@ public class Graph implements WeightedGraph {
 	 * @param t is the other node to be connected
 	 * @param w is the weight of the connection
 	 */
-	public void addEdge(int s, int t, int w) throws NonPositive {
-		if(s>size) {
-			System.out.println("Nonexistent Source Node");
-		}else if(t>size){
-			System.out.println("Nonexistent Source Node");
-		}else if (w<=0){
-			throw new NonPositive("XML hasnegative or weightless edeges");
-		}
+	public void addEdge(int s, int t, int w) {
+	
 		edges.get(s-1).add(new Edge(t, w,0));
 		edges.get(t-1).add(new Edge(s, w,0));
+		
 	}
 	
 	/**
 	 * returns the number of nodes in the graph
 	 */
+	
 	public int getNNodes() {
 		return size;
-	}
+	} 
 	
+	public ArrayList<LinkedList<Edge>> getNodes(){
+		return this.edges;
+	}
 	/**
 	 * removes the edge connecting two nodes. If there is one.
 	 * 

@@ -1,5 +1,7 @@
 package grafo;
 
+import java.util.LinkedList;
+
 import exceptions.NonPositive;
 
 /**
@@ -21,7 +23,7 @@ public interface WeightedGraph {
 	 * @param weight is the weight of the connection
 	 * @throws NonPositive 
 	 */
-	public void addEdge(int source, int target, int weight) throws NonPositive; 
+	public void addEdge(int source, int target, int weight); 
 	
 	/**
 	 * Return the number of the nodes in the graph
@@ -41,4 +43,10 @@ public interface WeightedGraph {
 	 * @param f the node
 	 * @return the list of nodes with a connection to f
 	 */
+	
+	public LinkedList<Edge> adjacentEdges(int f);
+	
+	public Edge getEdge(int s, int t);
+	
+	
 }

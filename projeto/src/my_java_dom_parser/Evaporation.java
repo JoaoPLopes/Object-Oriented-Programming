@@ -2,20 +2,20 @@ package my_java_dom_parser;
 
 public class Evaporation {
 	
-	private float eta;
-	private float rho;
+	static float eta;
+	static float rho;
 	
 	Evaporation(float e, float r){
-		this.eta = e;
-		this.rho = r;
+		eta = e; 
+		rho = r;
 	}
 	
 	public float getEta() {
-		return this.eta;
-	}
+		return eta;
+	} 
 	
 	public float getRho() {
-		return this.rho;
+		return rho;
 	}
 
 	@Override

@@ -14,9 +14,9 @@ import java.util.PriorityQueue;
  */
 public class PEC implements PendingEventContainer {
 	
-	PriorityQueue<Event> evQueue = new PriorityQueue<Event>(1, new Comparador());
+	PriorityQueue<DicreteEvent> evQueue = new PriorityQueue<DicreteEvent>(1, new Comparador());
 	
-	
+	 
 	/**
 	 * Constructs a PEC
 	 */
@@ -50,7 +50,7 @@ public class PEC implements PendingEventContainer {
 	/**
 	 * Returns the next event in the PEC. The next event is the one with the smaller time stamp.
 	 */
-	public Event nextEvPEC() {
+	public DicreteEvent nextEvPEC() {
 		return evQueue.poll();
 	}
 

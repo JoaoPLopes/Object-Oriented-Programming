@@ -2,12 +2,12 @@ package simulator;
 
 import java.util.Comparator;
 
-public class Comparador implements Comparator<Event>{
+public class Comparador implements Comparator<DicreteEvent>{
 
-	public int compare(Event l, Event r) {	
-		if((l.time_stamp - r.time_stamp) > 0) {
+	public int compare(DicreteEvent l, DicreteEvent r) {	
+		if((l.getTimeStamp() - r.getTimeStamp()) > 0) {
 			return 1;
-		}else if((l.time_stamp - r.time_stamp) < 0) {
+		}else if((l.getTimeStamp()  - r.getTimeStamp()) < 0) {
 			return -1;
 		}else {
 			return 0;

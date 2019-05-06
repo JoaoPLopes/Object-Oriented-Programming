@@ -13,4 +13,8 @@ public interface DicreteEvent {
 	 */
 	public void simulate();
 
+	public double getTimeStamp();
+	
+	
+
 }

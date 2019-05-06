@@ -1,26 +1,26 @@
 package my_java_dom_parser;
 
 public class Simulation {
-	private float finalinst;
-	private int antcolsize;
-	private float plevel;
+	static float finalinst;
+	static int antcolsize;
+	static float plevel;
 	
 	Simulation(float f, int a, float p){
-		this.finalinst = f;
-		this.antcolsize = a;
-		this.plevel = p;
+		finalinst = f;
+		antcolsize = a;
+		plevel = p;
 	}
 	
 	public float getFinalinst() {
-		return this.finalinst;
+		return finalinst;
 	}
 	
 	public int getColonySize() {
-		return this.antcolsize;
+		return antcolsize;
 	}
 	
 	public float getPlevel() {
-		return this.plevel;
+		return plevel;
 	}
 
 	@Override

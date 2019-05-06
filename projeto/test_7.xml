@@ -1,0 +1,300 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Courier New;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\f0\fs22\lang2070 <?xml version="1.0" encoding="UTF-8"?>\par
+<!DOCTYPE simulation SYSTEM "simulation.dtd">\par
+<simulation finalinst="3000.0" antcolsize="200" plevel="0.5">\par
+        <graph nbnodes="78" nestnode="1">\par
+            <node nodeidx="1">\par
+                <weight targetnode="3">1</weight>\par
+                <weight targetnode="15">1</weight>\par
+                <weight targetnode="20">1</weight>\par
+            </node>\par
+            <node nodeidx="2">\par
+                <weight targetnode="11">1</weight>\par
+                <weight targetnode="42">1</weight>\par
+                <weight targetnode="70">1</weight>\par
+            </node>\par
+            <node nodeidx="3">\par
+                <weight targetnode="13">1</weight>\par
+                <weight targetnode="26">1</weight>\par
+            </node>\par
+            <node nodeidx="4">\par
+                <weight targetnode="46">1</weight>\par
+                <weight targetnode="56">1</weight>\par
+                <weight targetnode="68">1</weight>\par
+            </node>\par
+            <node nodeidx="5">\par
+                <weight targetnode="28">1</weight>\par
+                <weight targetnode="36">1</weight>\par
+                <weight targetnode="48">1</weight>\par
+            </node>\par
+            <node nodeidx="6">\par
+                <weight targetnode="9">1</weight>\par
+                <weight targetnode="40">1</weight>\par
+                <weight targetnode="59">1</weight>\par
+            </node>\par
+            <node nodeidx="7">\par
+                <weight targetnode="28">1</weight>\par
+                <weight targetnode="32">1</weight>\par
+                <weight targetnode="76">1</weight>\par
+            </node>\par
+            <node nodeidx="8">\par
+                <weight targetnode="19">1</weight>\par
+                <weight targetnode="35">1</weight>\par
+                <weight targetnode="70">1</weight>\par
+            </node>\par
+            <node nodeidx="9">\par
+                <weight targetnode="52">1</weight>\par
+                <weight targetnode="53">1</weight>\par
+            </node>\par
+            <node nodeidx="10">\par
+                <weight targetnode="22">1</weight>\par
+                <weight targetnode="60">1</weight>\par
+                <weight targetnode="67">1</weight>\par
+            </node>\par
+            <node nodeidx="11">\par
+                <weight targetnode="43">1</weight>\par
+                <weight targetnode="68">1</weight>\par
+            </node>\par
+            <node nodeidx="12">\par
+                <weight targetnode="33">1</weight>\par
+                <weight targetnode="53">1</weight>\par
+                <weight targetnode="62">1</weight>\par
+            </node>\par
+            <node nodeidx="13">\par
+                <weight targetnode="25">1</weight>\par
+                <weight targetnode="63">1</weight>\par
+            </node>\par
+            <node nodeidx="14">\par
+                <weight targetnode="22">1</weight>\par
+                <weight targetnode="36">1</weight>\par
+                <weight targetnode="44">1</weight>\par
+            </node>\par
+            <node nodeidx="15">\par
+                <weight targetnode="30">1</weight>\par
+                <weight targetnode="75">1</weight>\par
+            </node>\par
+            <node nodeidx="16">\par
+                <weight targetnode="21">1</weight>\par
+                <weight targetnode="61">1</weight>\par
+                <weight targetnode="65">1</weight>\par
+            </node>\par
+            <node nodeidx="17">\par
+                <weight targetnode="50">1</weight>\par
+                <weight targetnode="67">1</weight>\par
+                <weight targetnode="77">1</weight>\par
+            </node>\par
+            <node nodeidx="18">\par
+                <weight targetnode="29">1</weight>\par
+                <weight targetnode="39">1</weight>\par
+                <weight targetnode="75">1</weight>\par
+            </node>\par
+            <node nodeidx="19">\par
+                <weight targetnode="29">1</weight>\par
+                <weight targetnode="44">1</weight>\par
+            </node>\par
+            <node nodeidx="20">\par
+                <weight targetnode="47">1</weight>\par
+                <weight targetnode="58">1</weight>\par
+            </node>\par
+            <node nodeidx="21">\par
+                <weight targetnode="24">1</weight>\par
+                <weight targetnode="66">1</weight>\par
+            </node>\par
+            <node nodeidx="22">\par
+                <weight targetnode="38">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="78">1</weight>\par
+\tab\tab\tab <weight targetnode="60">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="23">\par
+                <weight targetnode="39">1</weight>\par
+                <weight targetnode="68">1</weight>\par
+                <weight targetnode="73">1</weight>\par
+            </node>\par
+            <node nodeidx="24">\par
+                <weight targetnode="64">1</weight>\par
+                <weight targetnode="74">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="49">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="25">\par
+                <weight targetnode="33">1</weight>\par
+                <weight targetnode="78">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="55">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="26">\par
+                <weight targetnode="47">1</weight>\par
+                <weight targetnode="51">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="65">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="27">\par
+                <weight targetnode="45">1</weight>\par
+                <weight targetnode="60">1</weight>\par
+                <weight targetnode="72">1</weight>\par
+            </node>\par
+            <node nodeidx="28">\par
+                <weight targetnode="42">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="38">1</weight>\par
+\tab\tab\tab <weight targetnode="41">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="29">\par
+                <weight targetnode="49">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="76">1</weight>\par
+\tab\tab\tab <weight targetnode="67">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="30">\par
+                <weight targetnode="46">1</weight>\par
+                <weight targetnode="58">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="42">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="31">\par
+                <weight targetnode="41">1</weight>\par
+                <weight targetnode="52">1</weight>\par
+                <weight targetnode="55">1</weight>\par
+            </node>\par
+            <node nodeidx="32">\par
+                <weight targetnode="36">1</weight>\par
+                <weight targetnode="38">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="77">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="33">\par
+                <weight targetnode="65">1</weight>\par
+            </node>\par
+            <node nodeidx="34">\par
+                <weight targetnode="38">1</weight>\par
+                <weight targetnode="67">1</weight>\par
+                <weight targetnode="76">1</weight>\par
+            </node>\par
+            <node nodeidx="35">\par
+                <weight targetnode="42">1</weight>\par
+                <weight targetnode="48">1</weight>\par
+
+\pard\li2160 <weight targetnode="59">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="37">\par
+                <weight targetnode="64">1</weight>\par
+                <weight targetnode="72">1</weight>\par
+                <weight targetnode="77">1</weight>\par
+            </node>\par
+            <node nodeidx="39">\par
+                <weight targetnode="43">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="71">1</weight>\par
+\tab\tab\tab <weight targetnode="73">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="40">\par
+                <weight targetnode="61">1</weight>\par
+                <weight targetnode="71">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="64">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="41">\par
+                <weight targetnode="51">1</weight>\par
+                <weight targetnode="57">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="76">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="43">\par
+                <weight targetnode="49">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="63">1</weight>\par
+\tab\tab\tab <weight targetnode="62">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="44">\par
+                <weight targetnode="48">1</weight>\par
+
+\pard\tab\tab\tab <weight targetnode="71">1</weight>\par
+\tab\tab\tab <weight targetnode="74">1</weight>\par
+
+\pard             </node>\par
+            <node nodeidx="45">\par
+                <weight targetnode="54">1</weight>\par
+                <weight targetnode="59">1</weight>\par
+            </node>\par
+            <node nodeidx="46">\par
+                <weight targetnode="73">1</weight>\par
+            </node>\par
+            <node nodeidx="47">\par
+                <weight targetnode="57">1</weight>\par
+            </node>\par
+            <node nodeidx="49">\par
+                <weight targetnode="70">1</weight>\par
+            </node>\par
+            <node nodeidx="50">\par
+                <weight targetnode="64">1</weight>\par
+                <weight targetnode="76">1</weight>\par
+            </node>\par
+            <node nodeidx="51">\par
+                <weight targetnode="63">1</weight>\par
+            </node>\par
+            <node nodeidx="52">\par
+                <weight targetnode="62">1</weight>\par
+            </node>\par
+            <node nodeidx="53">\par
+                <weight targetnode="71">1</weight>\par
+            </node>\par
+            <node nodeidx="54">\par
+                <weight targetnode="66">1</weight>\par
+                <weight targetnode="74">1</weight>\par
+            </node>\par
+            <node nodeidx="55">\par
+                <weight targetnode="63">1</weight>\par
+                <weight targetnode="78">1</weight>\par
+            </node>\par
+            <node nodeidx="56">\par
+                <weight targetnode="57">1</weight>\par
+                <weight targetnode="58">1</weight>\par
+            </node>\par
+            <node nodeidx="59">\par
+                <weight targetnode="69">1</weight>\par
+            </node>\par
+            <node nodeidx="60">\par
+                <weight targetnode="77">1</weight>\par
+            </node>\par
+            <node nodeidx="61">\par
+                <weight targetnode="69">1</weight>\par
+            </node>\par
+            <node nodeidx="62">\par
+                <weight targetnode="78">1</weight>\par
+            </node>\par
+            <node nodeidx="65">\par
+                <weight targetnode="71">1</weight>\par
+            </node>\par
+            <node nodeidx="66">\par
+                <weight targetnode="69">1</weight>\par
+            </node>\par
+            <node nodeidx="72">\par
+                <weight targetnode="74">1</weight>\par
+            </node>\par
+            <node nodeidx="73">\par
+                <weight targetnode="75">1</weight>\par
+            </node>\par
+        </graph>\par
+    <events>\par
+        <move alpha="100" beta="1.0" delta="0.1"/>\par
+        <evaporation eta="2.0" rho="10.0"/>\par
+    </events>\par
+</simulation>\par
+\par
+}
+ 

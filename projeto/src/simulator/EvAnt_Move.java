@@ -1,25 +1,29 @@
 package simulator;
 
+import exceptions.EdgeNextMoveException;
+
 /**
  * Class: EvAnt_Move.java
  * 
  * @author Joao Lopes
  *
  */
-
+ 
 public class EvAnt_Move extends Event{
 	
-	protected Ant ant;
+	protected Traverser ant;
+	protected int nextNode;
 	
 	/**
 	 * Constructs an Event Ant Move
 	 * @param time the time stamp associated to the event
-	 * @param a the ant associated to the movement
+	 * @param ant the ant associated to the movement
 	 */
 
-	EvAnt_Move(double time, Ant a) {
+	EvAnt_Move(double time, Traverser _ant, int nn) {
 		super(time);
-		ant =  a;
+		ant = _ant;
+		nextNode = nn;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -30,19 +34,39 @@ public class EvAnt_Move extends Event{
 	 * As a result of this simulation another event ant move is added to the  PEC
 	 */
 	public void simulate() {
-		ant.move();
-		double t = time_stamp + expRandom(mean);
-		if(t<simTime)
-			pec.addEvPEC(new EvAnt_Move(t, ant));
 		
+		ant.move(nextNode);
+		if(!ant.getPath().hasHamiltonCycle()) {
+			try {
+				ant.chooseNextNode();
+				
+				int newNextNode = ant.chooseNextNode();
+				
+				int weight = ColonySimulator.grafo.getEdge(ant.getPath().getCurrentNode(), newNextNode).getWeight();
+				
+				double t = time_stamp + expRandom(ColonySimulator.dados.getDelta() * weight );
+				
+				if(t<ColonySimulator.dados.getFinalinst())
+					ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ant, newNextNode ));
+			}
+			catch (EdgeNextMoveException ex) {
+				System.exit(-1);
+			}
+			
+
+		}
 	}
 	
 	/**
 	 * 
 	 * @return the index of the ant associated to the event
 	 */
-	public int getAnt() {
-		return ant.getIdx();
+	public Traverser getAnt() {
+		return this.ant;
+	}
+	
+	public double getTimeStamp() {
+		return this.time_stamp;
 	}
 	
 	/**
