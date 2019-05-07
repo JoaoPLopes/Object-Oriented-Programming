@@ -4,11 +4,11 @@ import exceptions.EdgeNextMoveException;
 
 /**
  * Class: EvAnt_Move.java
+ * This class extends the abstract class Event. An event Ant Move generates an event with a time stamp
  * 
- * @author Joao Lopes
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
- 
 public class EvAnt_Move extends Event{
 	
 	protected Traverser ant;
@@ -17,37 +17,37 @@ public class EvAnt_Move extends Event{
 	/**
 	 * Constructs an Event Ant Move
 	 * @param time the time stamp associated to the event
-	 * @param ant the ant associated to the movement
+	 * @param ant the Traverser associated to the movement
+	 * @param nn is the next node where the Traverser is going to move
 	 */
-
 	EvAnt_Move(double time, Traverser _ant, int nn) {
 		super(time);
 		ant = _ant;
 		nextNode = nn;
-		// TODO Auto-generated constructor stub
 	}
 
 	
 	/**
 	 * 
 	 * Simulate the Event Ant Move
-	 * As a result of this simulation another event ant move is added to the  PEC
+	 * As a result of this simulation the traverser will move to the scheduled edge and
+	 * another event ant move is added to the  PEC
 	 */
 	public void simulate() {
 		
-		ant.move(nextNode);
-		if(!ant.getPath().hasHamiltonCycle()) {
+		getAnt().move(nextNode);
+		if(!getAnt().getPath().hasHamiltonCycle()) {
 			try {
-				ant.chooseNextNode();
+				getAnt().chooseNextNode();
 				
-				int newNextNode = ant.chooseNextNode();
+				int newNextNode = getAnt().chooseNextNode();
 				
-				int weight = ColonySimulator.grafo.getEdge(ant.getPath().getCurrentNode(), newNextNode).getWeight();
+				int weight = ColonySimulator.grafo.getEdge(getAnt().getPath().getCurrentNode(), newNextNode).getWeight();
 				
 				double t = time_stamp + expRandom(ColonySimulator.dados.getDelta() * weight );
 				
 				if(t<ColonySimulator.dados.getFinalinst())
-					ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, ant, newNextNode ));
+					ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, getAnt(), newNextNode ));
 			}
 			catch (EdgeNextMoveException ex) {
 				System.exit(-1);
@@ -59,12 +59,16 @@ public class EvAnt_Move extends Event{
 	
 	/**
 	 * 
-	 * @return the index of the ant associated to the event
+	 * @return the traverser associated to the event
 	 */
-	public Traverser getAnt() {
-		return this.ant;
+	public Ant getAnt() {
+		return (Ant) ant;
 	}
 	
+	
+	/**
+	 * @return the time stamp associated to the event
+	 */
 	public double getTimeStamp() {
 		return this.time_stamp;
 	}

@@ -26,6 +26,9 @@ public interface PendingEventContainer {
 	 * @return the next event in the container
 	 */
 	public Object nextEvPEC();
-	
+	/**
+	 * Check if the object PEC is empty
+	 * @return true if the PEC has no elements
+	 */
 	public boolean isEmpty();
 }

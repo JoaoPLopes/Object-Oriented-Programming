@@ -21,7 +21,7 @@ public interface WeightedGraph {
 	 * @param source is the source node
 	 * @param target is the target node
 	 * @param weight is the weight of the connection
-	 * @throws NonPositive 
+	 * @throws NonPositive throws exception when the weigh in negative
 	 */
 	public void addEdge(int source, int target, int weight); 
 	

@@ -12,7 +12,7 @@ import grafo.Edge;
  * This class implements the Traverser interface.
  * An Ant is associated to an object graph. It can move in his graph nodes.
  * The ant stores its current node as the previous visited nodes.
- * @author Joao Lopes
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
 public class Ant implements Traverser{
@@ -22,64 +22,70 @@ public class Ant implements Traverser{
 	/**
 	 * Constructs an object Ant
 	 * @param n is the node where a new Ant is placed
-	 * Using this constructor the other Ant field are associated to the correspondent 
-	 * static fields in the class ColonySimulator
 	 */
-	Ant(int n, int i){
+	Ant(int n){
 		path = new Path(n);
-		idx = i;
 	}
 	
-	public int getIdx() {
-		return this.idx;
-	}
-	
-	
+	/**
+	 * This method is getter of the traverser path.
+	 * @return a path implementation of the TraverserPath interface
+	 */
 	public Path getPath() {
 		
 		return (Path) path;
 		
 	}
 	
-	
-	public void placingPheroSetEvents(int totalPathWeight, double time_stamp )  {
+	/**
+	 * This method is used by an object Ant to place pheromones in the graph.
+	 * @param totalPathWeight is the weight of the path where the pherormones are going to be layed
+	 * @param time is the current simulation time
+	 */
+	public void placingPheroSetEvents(int totalPathWeight, double time )  {
 		int i=0;
 		double t=0;
 		int nextNode;
-		for (Integer node : this.path.getVisited()) {
+		float inc = pherormoneInc(totalPathWeight);
+		for (Integer node : getPath().getVisited()) {
 			if (i == ColonySimulator.grafo.getNNodes() )
 				return;
 			
-			nextNode =  this.path.getVisited().get(i+1);
+			nextNode =  getPath().getVisited().get(i+1);
 			
 			if ( (ColonySimulator.grafo.getEdge(node, nextNode).getPherormone() == 0)){
 				
-				t = time_stamp + Event.expRandom(ColonySimulator.dados.getEta());
+				t = time + Event.expRandom(ColonySimulator.dados.getEta());
 				
 				if (t<ColonySimulator.dados.getFinalinst())
 					
 					ColonySimulator.pec.addEvPEC(new EvPhero_Evap(t, ColonySimulator.grafo.getEdge(node, nextNode), ColonySimulator.grafo.getEdge(nextNode, node)));
 					}
 			
-			ColonySimulator.grafo.getEdge(node, nextNode).updatePheromone(pherormoneInc(totalPathWeight));
-			ColonySimulator.grafo.getEdge(nextNode, node).updatePheromone(pherormoneInc(totalPathWeight));
+			ColonySimulator.grafo.getEdge(node, nextNode).updatePheromone(inc);
+			ColonySimulator.grafo.getEdge(nextNode, node).updatePheromone(inc);
 			
 			i++;
 			
 		}
 	}
 	
-	
+	/**
+	 * This method chooses randomly the next node where the Traverser is going to move
+	 * 
+	 * @return the index of the next node
+	 * @throws EdgeNextMoveException if the next node has an invalid index
+	 */
 	public int chooseNextNode() throws EdgeNextMoveException {
 		
 		List<Double> probabilities = new ArrayList<>();
 		List<Edge> nonVisited = new ArrayList<>();
 		
-		if (ColonySimulator.grafo.adjacentEdges(path.getCurrentNode()).size()==0)
+		if (ColonySimulator.grafo.adjacentEdges(getPath().getCurrentNode()).size()==0)
 			throw new EdgeNextMoveException();
 
-		for(Edge e: ColonySimulator.grafo.adjacentEdges(path.getCurrentNode())) {
-			if(!path.getVisited().contains(e.getTarget())) {
+		for(Edge e: ColonySimulator.grafo.adjacentEdges(getPath().getCurrentNode())) {
+			if(!getPath().getVisited().contains(e.getTarget())) {
 				probabilities.add(getCijk(e));
 				nonVisited.add(e);
 			}
@@ -102,26 +108,34 @@ public class Ant implements Traverser{
 
 			//path.setboolean(false);
 		}
-		
 		return nonVisited.get(idx).getTarget();
 		
 		
 	}
 	
+	/**
+	 *  move the traverser from the current node to the next node
+	 * @param nextNode is the next node of the traverser 
+	 */
 	public void move(int nextNode) {
-			int prevNode = path.getCurrentNode();
-			path.setCurrentNode(nextNode);
-			path.addVisitedNode(nextNode);
+			int prevNode = getPath().getCurrentNode();
+			getPath().setCurrentNode(nextNode);
+			getPath().addVisitedNode(nextNode);
 			int weight = ColonySimulator.grafo.getEdge(prevNode, nextNode).getWeight();
-			path.addPathWeight(weight);
+			getPath().addPathWeight(weight);
 			//System.out.println(path.getVisited() + "\n");
 			// If it does not have an Hamilton cycle then the ant should go back
-			if(!this.path.hasHamiltonCycle()) {
-				path.removeCycle();
+			if(getPath().hasDuplicate()) {
+				if(!getPath().hasHamiltonCycle()) {
+					getPath().removeCycle();
 				}
+			}
 			
 	}
 	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Ant [path=" + path + ", idx=" + idx + "]";
@@ -136,11 +150,10 @@ public class Ant implements Traverser{
 	public static int chooseProb(List<Double> probabilities){
 		double p = Math.random();
 		double cumulativeProbability = 0.0;
-		for (Double item : probabilities) {
-			cumulativeProbability += item;
+		for (int i = 0; i < probabilities.size(); i++) {
+			cumulativeProbability += probabilities.get(i);
 			if (p <= cumulativeProbability) {
-				double x = item;
-				return probabilities.indexOf(x);
+				return i;
 			}
 		}
 		return 0;
@@ -165,14 +178,22 @@ public class Ant implements Traverser{
 		return probabilities;
 	}
 	
+	/**
+	 * This static method computes the increment of pherormones when a Traverser is laying pheromones int the graph
+	 * @param totalPathWeight is the weight of the path where the pheromones are being layed
+	 * @return the level of pherormone increment
+	 */
 	public static float pherormoneInc(int totalPathWeight) {
 		return ColonySimulator.dados.getpLevel()*ColonySimulator.dados.getGraphWeight();
 	}
 	
+	/**
+	 * This static method is used to compute the non-normalized probabilities of a traverser moving through a given edge
+	 * @param e is the edge where the traverser is going to move
+	 * @return the non-normalized probability of that move
+	 */
 	public static double getCijk(Edge e) {
 		return (ColonySimulator.dados.getAlpha()+e.getPherormone())/(ColonySimulator.dados.getBeta()+e.getWeight()); 
 	}
-	
-	
 	
 }

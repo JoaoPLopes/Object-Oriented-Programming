@@ -6,7 +6,7 @@ import exceptions.EdgeNextMoveException;
  * Interface of a graph traverser. A graph traverser can move through a graph an store 
  * the path taken as well as the current node;
  * 
- * @author Joao Lopes
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
 
@@ -14,22 +14,22 @@ public interface Traverser {
 	
 	
 	/**
-	 * move the traverser from the current node to the next node
-	 * @return 
-	 *
+	 *  move the traverser from the current node to the next node
+	 * @param nextNode is the next node of the traverser 
 	 */
 	public void move(int nextNode);
+
 	/**
-	 * Returns the node where the traverser is
-	 * @return current node
+	 * This method returns the next node where the traverser is going to move
+	 * @return an integer representing the node where the ant is going to move
+	 * @throws EdgeNextMoveException if the next node has an invalid index
 	 */
-	/**
-	 * Returns a list containing all the visited nodes by the traverser
-	 * @return visited nodes
-	 */
-	
 	public int chooseNextNode() throws EdgeNextMoveException;
 	
-	public Path getPath();
+	/**
+	 * Returns a the traverser path
+	 * @return an object path containing all the visited nodes nodes
+	 */
+	public TraverserPath getPath();
 	
 }

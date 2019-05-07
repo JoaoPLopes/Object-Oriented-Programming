@@ -9,10 +9,29 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.SAXParseException;
 
 public class SaxParser extends DefaultHandler {
 	
-		List<Weights> edges; 
+		List<Weights> edges;
+		private static final String SIMULATION="simulation";
+		private static final String FINALINST="finalinst";
+		private static final String ANTCOLSIZE="antcolsize";
+		private static final String PLEVEL="plevel";
+		private static final String GRAPH="graph";
+		private static final String NBNODES="nbnodes";
+		private static final String NESTNODE="nestnode";
+		private static final String MOVE="move";
+		private static final String ALPHA="alpha";
+		private static final String BETA="beta";
+		private static final String DELTA="delta";
+		private static final String EVAPORATION="evaporation";
+		private static final String ETA="eta";
+		private static final String RHO="rho";
+		private static final String NODE="node";
+		private static final String NODEIDX="nodeidx";
+		private static final String WEIGHT="weight";
+		private static final String TARGETNODE="targetnode";
 		Move mov;
 		Evaporation evap;
 		Simulation simul ;
@@ -36,6 +55,7 @@ public class SaxParser extends DefaultHandler {
 	private void parseDocument() {
 		        // parse
 		        SAXParserFactory factory = SAXParserFactory.newInstance();
+	            factory.setValidating(true);
 		        try {
 		            SAXParser parser = factory.newSAXParser();
 		            parser.parse(xmlFileName, this);
@@ -52,30 +72,30 @@ public class SaxParser extends DefaultHandler {
 		    
 	public void startElement(String s, String s1, String elementName, Attributes attributes) throws SAXException {
 		    	
-		if (elementName.equalsIgnoreCase("simulation")) {
-			simul = new Simulation(Float.parseFloat(attributes.getValue("finalinst")),Integer.parseInt(attributes.getValue("antcolsize")),Float.parseFloat(attributes.getValue("plevel")));		
+		if (elementName.equalsIgnoreCase(SIMULATION)) {
+			simul = new Simulation(Float.parseFloat(attributes.getValue(FINALINST)),Integer.parseInt(attributes.getValue(ANTCOLSIZE)),Float.parseFloat(attributes.getValue(PLEVEL)));		
 		}
 		
-		if (elementName.equalsIgnoreCase("graph")) {
-		    nbnodes = Integer.parseInt(attributes.getValue("nbnodes"));
-		    nest_node = Integer.parseInt(attributes.getValue("nestnode"));
+		if (elementName.equalsIgnoreCase(GRAPH)) {
+		    nbnodes = Integer.parseInt(attributes.getValue(NBNODES));
+		    nest_node = Integer.parseInt(attributes.getValue(NESTNODE));
 		} 
 		    	
-		if (elementName.equalsIgnoreCase("move")) {
+		if (elementName.equalsIgnoreCase(MOVE)) {
 
-				mov = new Move(Float.parseFloat(attributes.getValue("alpha")),Float.parseFloat(attributes.getValue("beta")),Float.parseFloat(attributes.getValue("delta")));
+				mov = new Move(Float.parseFloat(attributes.getValue(ALPHA)),Float.parseFloat(attributes.getValue(BETA)),Float.parseFloat(attributes.getValue(DELTA)));
 		}
 
-		if (elementName.equalsIgnoreCase("evaporation")) {
-		    evap = new Evaporation(Float.parseFloat(attributes.getValue("eta")),Float.parseFloat(attributes.getValue("rho")));
+		if (elementName.equalsIgnoreCase(EVAPORATION)) {
+		    evap = new Evaporation(Float.parseFloat(attributes.getValue(ETA)),Float.parseFloat(attributes.getValue(RHO)));
 		}
 		    	
-		if (elementName.equalsIgnoreCase("node")) {
-		    nodeindex = attributes.getValue("nodeidx");
+		if (elementName.equalsIgnoreCase(NODE)) {
+		    nodeindex = attributes.getValue(NODEIDX);
 		}
 		        // if current element is publisher
-		if (elementName.equalsIgnoreCase("weight")) {
-		    tempweight = new Weights(Integer.parseInt(nodeindex), Integer.parseInt(attributes.getValue("targetnode")));
+		if (elementName.equalsIgnoreCase(WEIGHT)) {
+		    tempweight = new Weights(Integer.parseInt(nodeindex), Integer.parseInt(attributes.getValue(TARGETNODE)));
 		}
 		        
 		        
@@ -83,14 +103,14 @@ public class SaxParser extends DefaultHandler {
 		    
 	public void endElement(String s, String s1, String element) throws SAXException {
 		        // if end of book element add to list
-		if (element.equalsIgnoreCase("weight")) {
+		if (element.equalsIgnoreCase(WEIGHT)) {
 		    tempweight.setWeight(Integer.parseInt(tmpValue));
 		    graphtotalweight+=Integer.parseInt(tmpValue);
 		    edges.add(tempweight);
 		    
 		}
 		
-		if (element.equalsIgnoreCase("simulation")) {
+		if (element.equalsIgnoreCase(SIMULATION)) {
 		    grafo = new Data(nbnodes, nest_node, edges, mov,  simul , evap);
 		    grafo.addGraphWeight(graphtotalweight);
 		}
@@ -101,6 +121,21 @@ public class SaxParser extends DefaultHandler {
 	public void characters(char[] ac, int i, int j) throws SAXException {
 		tmpValue = new String(ac, i, j);
 	}
+	
+	public void warning(SAXParseException e)throws SAXParseException{
+		System.out.println("Warning! "+ e.getMessage());
+	}
+
+	public void error(SAXParseException e)throws SAXParseException{
+		System.out.println("Error! "+ e.getMessage());
+		System.exit(-2);
+	}
+
+	public void fatalError(SAXParseException e) throws SAXParseException{
+		System.out.println("Fatal error! "+ e.getMessage()+"\nAbortando");
+		System.exit(-1);
+	}
+
 		    
 }
 

@@ -72,7 +72,7 @@ public class ColonySimulator {
 		pec = new PEC();
 
 		for (int i=0; i<dados.getColonySize(); i++)
-			ants.add(new Ant(dados.getNest(), i));
+			ants.add(new Ant(dados.getNest()));
 
 		try {
 			
@@ -144,12 +144,12 @@ public class ColonySimulator {
 					}
 					
 				}
-				report.updateReport(currentTime, currentEvent);
+				report.updateReport(currentEvent);
 			}
 			
 			else if (currentEvent instanceof EvPhero_Evap) {
 				currentEvent.simulate();
-				report.updateReport(currentTime, currentEvent);
+				report.updateReport(currentEvent);
 			}
 			
 			else {
