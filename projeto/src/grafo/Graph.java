@@ -110,6 +110,7 @@ public class Graph implements WeightedGraph {
 	 * @param t is the other node
 	 * @return the edge that connects the nodes s and t
 	 */
+	@Override
 	public Edge getEdge(int s, int t) {
 		if(this.neighbors(s).contains(t)) {
 			for(Edge e: this.adjacentEdges(s))

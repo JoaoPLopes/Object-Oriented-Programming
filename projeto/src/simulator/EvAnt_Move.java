@@ -1,6 +1,7 @@
 package simulator;
 
 import exceptions.EdgeNextMoveException;
+import grafo.Edge;
 
 /**
  * Class: EvAnt_Move.java
@@ -37,21 +38,19 @@ public class EvAnt_Move extends Event{
 		
 		getAnt().move(nextNode);
 		if(!getAnt().getPath().hasHamiltonCycle()) {
-			try {
+			
 				getAnt().chooseNextNode();
 				
 				int newNextNode = getAnt().chooseNextNode();
 				
-				int weight = ColonySimulator.grafo.getEdge(getAnt().getPath().getCurrentNode(), newNextNode).getWeight();
+				int weight = ((Edge) ColonySimulator.grafo.getEdge(getAnt().getPath().getCurrentNode(), newNextNode)).getWeight();
 				
 				double t = time_stamp + expRandom(ColonySimulator.dados.getDelta() * weight );
 				
 				if(t<ColonySimulator.dados.getFinalinst())
 					ColonySimulator.pec.addEvPEC(new EvAnt_Move(t, getAnt(), newNextNode ));
-			}
-			catch (EdgeNextMoveException ex) {
-				System.exit(-1);
-			}
+
+			
 			
 
 		}

@@ -2,7 +2,6 @@ package grafo;
 
 import java.util.LinkedList;
 
-import exceptions.NonPositive;
 
 /**
  * 

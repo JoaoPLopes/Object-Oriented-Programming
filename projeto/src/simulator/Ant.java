@@ -77,13 +77,11 @@ public class Ant implements Traverser{
 	 * @return the index of the next node
 	 * @throws EdgeNextMoveException if the next node has an invalid index
 	 */
-	public int chooseNextNode() throws EdgeNextMoveException {
+	public int chooseNextNode(){
 		
 		List<Double> probabilities = new ArrayList<>();
 		List<Edge> nonVisited = new ArrayList<>();
 		
-		if (ColonySimulator.grafo.adjacentEdges(getPath().getCurrentNode()).size()==0)
-			throw new EdgeNextMoveException();
 
 		for(Edge e: ColonySimulator.grafo.adjacentEdges(getPath().getCurrentNode())) {
 			if(!getPath().getVisited().contains(e.getTarget())) {

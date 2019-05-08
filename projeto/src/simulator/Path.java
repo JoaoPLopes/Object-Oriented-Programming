@@ -64,14 +64,11 @@ public class Path implements TraverserPath {
 	 * @return the total weight of the path
 	 * @throws NonPositive if the weight has a negative value
 	 */
-	public int getTotalPathWeight() throws NonPositive{
+	public int getTotalPathWeight(){
 		int sum = 0;
 		for(Integer path_temp : path_weight) {
 			sum+= path_temp;
 		}
-		if(sum < 0)
-			throw new NonPositive("A path weight is Negative, something is wrong"); 
-		else
 			return sum;
 	}
 	

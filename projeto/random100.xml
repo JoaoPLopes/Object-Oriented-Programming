@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE simulation SYSTEM "simulation.dtd">
-<simulation finalinst="300" antcolsize="1000" plevel="0.5">    <graph nbnodes="100" nestnode="1">        <node nodeidx="1">
-            <weight targetnode="3">7</weight>
+<simulation finalinst="500" antcolsize="200" plevel="0.5">    <graph nbnodes="100" nestnode="1">        <node nodeidx="1">
+        	<weight targetnode="2">1</weight>
+            <weight targetnode="3">1</weight>
             <weight targetnode="4">6</weight>
             <weight targetnode="5">1</weight>
             <weight targetnode="6">8</weight>
@@ -26,7 +27,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="2">
-            <weight targetnode="3">2</weight>
+            <weight targetnode="3">1</weight>
             <weight targetnode="4">3</weight>
             <weight targetnode="5">9</weight>
             <weight targetnode="6">3</weight>
@@ -49,7 +50,7 @@
             <weight targetnode="100">8</weight>
         </node>        
         <node nodeidx="3">
-            <weight targetnode="4">5</weight>
+            <weight targetnode="4">1</weight>
             <weight targetnode="5">1</weight>
             <weight targetnode="6">2</weight>
             <weight targetnode="57">8</weight>
@@ -79,7 +80,7 @@
             <weight targetnode="95">6</weight>
         </node>        
         <node nodeidx="4">
-            <weight targetnode="5">9</weight>
+            <weight targetnode="5">1</weight>
             <weight targetnode="6">9</weight>
             <weight targetnode="7">4</weight>
             <weight targetnode="8">8</weight>
@@ -106,7 +107,7 @@
             <weight targetnode="98">2</weight>
         </node>        
         <node nodeidx="5">
-            <weight targetnode="6">9</weight>
+            <weight targetnode="6">1</weight>
             <weight targetnode="11">9</weight>
             <weight targetnode="12">7</weight>
             <weight targetnode="13">5</weight>
@@ -150,7 +151,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="6">
-            <weight targetnode="7">5</weight>
+            <weight targetnode="7">1</weight>
             <weight targetnode="8">1</weight>
             <weight targetnode="9">9</weight>
             <weight targetnode="16">9</weight>
@@ -221,7 +222,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="8">
-            <weight targetnode="9">4</weight>
+            <weight targetnode="9">1</weight>
             <weight targetnode="10">5</weight>
             <weight targetnode="11">5</weight>
             <weight targetnode="12">6</weight>
@@ -251,7 +252,8 @@
             <weight targetnode="95">7</weight>
         </node>        
         <node nodeidx="9">
-            <weight targetnode="11">5</weight>
+        	<weight targetnode="10">1</weight>
+            <weight targetnode="11">1</weight>
             <weight targetnode="12">1</weight>
             <weight targetnode="13">8</weight>
             <weight targetnode="14">7</weight>
@@ -280,7 +282,7 @@
             <weight targetnode="100">8</weight>
         </node>        
         <node nodeidx="10">
-            <weight targetnode="11">4</weight>
+            <weight targetnode="11">1</weight>
             <weight targetnode="12">8</weight>
             <weight targetnode="13">3</weight>
             <weight targetnode="22">1</weight>
@@ -319,7 +321,7 @@
             <weight targetnode="100">5</weight>
         </node>        
         <node nodeidx="11">
-            <weight targetnode="12">8</weight>
+            <weight targetnode="12">1</weight>
             <weight targetnode="13">5</weight>
             <weight targetnode="14">9</weight>
             <weight targetnode="21">5</weight>
@@ -362,7 +364,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="12">
-            <weight targetnode="13">6</weight>
+            <weight targetnode="13">1</weight>
             <weight targetnode="14">2</weight>
             <weight targetnode="15">8</weight>
             <weight targetnode="16">7</weight>
@@ -404,7 +406,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="13">
-            <weight targetnode="14">9</weight>
+            <weight targetnode="14">1</weight>
             <weight targetnode="15">2</weight>
             <weight targetnode="16">5</weight>
             <weight targetnode="17">6</weight>
@@ -441,7 +443,7 @@
             <weight targetnode="99">9</weight>
         </node>        
         <node nodeidx="15">
-            <weight targetnode="16">6</weight>
+            <weight targetnode="16">1</weight>
             <weight targetnode="17">1</weight>
             <weight targetnode="18">5</weight>
             <weight targetnode="27">6</weight>
@@ -470,7 +472,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="16">
-            <weight targetnode="17">8</weight>
+            <weight targetnode="17">1</weight>
             <weight targetnode="18">6</weight>
             <weight targetnode="19">1</weight>
             <weight targetnode="20">9</weight>
@@ -486,34 +488,11 @@
             <weight targetnode="40">5</weight>
             <weight targetnode="41">2</weight>
             <weight targetnode="43">7</weight>
-            <weight targetnode="44">9</weight>
-            <weight targetnode="45">1</weight>
-            <weight targetnode="46">4</weight>
-            <weight targetnode="69">3</weight>
-            <weight targetnode="70">1</weight>
-            <weight targetnode="71">5</weight>
-            <weight targetnode="72">4</weight>
-            <weight targetnode="73">6</weight>
-            <weight targetnode="74">9</weight>
-            <weight targetnode="75">5</weight>
-            <weight targetnode="76">4</weight>
-            <weight targetnode="77">9</weight>
-            <weight targetnode="78">4</weight>
-            <weight targetnode="79">7</weight>
-            <weight targetnode="80">9</weight>
-            <weight targetnode="81">7</weight>
-            <weight targetnode="83">1</weight>
-            <weight targetnode="84">4</weight>
-            <weight targetnode="85">9</weight>
-            <weight targetnode="86">6</weight>
-            <weight targetnode="96">5</weight>
-            <weight targetnode="97">7</weight>
-            <weight targetnode="98">5</weight>
             <weight targetnode="99">2</weight>
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="17">
-            <weight targetnode="18">8</weight>
+            <weight targetnode="18">1</weight>
             <weight targetnode="19">4</weight>
             <weight targetnode="20">4</weight>
             <weight targetnode="21">7</weight>
@@ -545,7 +524,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="18">
-            <weight targetnode="19">7</weight>
+            <weight targetnode="19">1</weight>
             <weight targetnode="20">8</weight>
             <weight targetnode="21">8</weight>
             <weight targetnode="22">5</weight>
@@ -593,7 +572,7 @@
             <weight targetnode="93">2</weight>
         </node>        
         <node nodeidx="19">
-            <weight targetnode="20">8</weight>
+            <weight targetnode="20">1</weight>
             <weight targetnode="21">5</weight>
             <weight targetnode="23">9</weight>
             <weight targetnode="24">5</weight>
@@ -644,7 +623,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="20">
-            <weight targetnode="21">7</weight>
+            <weight targetnode="21">1</weight>
             <weight targetnode="22">8</weight>
             <weight targetnode="23">4</weight>
             <weight targetnode="24">4</weight>
@@ -674,15 +653,6 @@
             <weight targetnode="69">1</weight>
             <weight targetnode="70">7</weight>
             <weight targetnode="71">8</weight>
-            <weight targetnode="72">1</weight>
-            <weight targetnode="73">4</weight>
-            <weight targetnode="74">9</weight>
-            <weight targetnode="75">8</weight>
-            <weight targetnode="76">2</weight>
-            <weight targetnode="77">2</weight>
-            <weight targetnode="78">6</weight>
-            <weight targetnode="79">5</weight>
-            <weight targetnode="80">7</weight>
             <weight targetnode="81">4</weight>
             <weight targetnode="86">6</weight>
             <weight targetnode="87">7</weight>
@@ -694,7 +664,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="21">
-            <weight targetnode="22">8</weight>
+            <weight targetnode="22">1</weight>
             <weight targetnode="24">8</weight>
             <weight targetnode="25">8</weight>
             <weight targetnode="26">4</weight>
@@ -743,7 +713,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="22">
-            <weight targetnode="23">5</weight>
+            <weight targetnode="23">1</weight>
             <weight targetnode="24">9</weight>
             <weight targetnode="25">4</weight>
             <weight targetnode="26">5</weight>
@@ -799,7 +769,8 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="23">
-            <weight targetnode="53">6</weight>
+            <weight targetnode="24">1</weight>
+            <weight targetnode="53">1</weight>
             <weight targetnode="54">1</weight>
             <weight targetnode="55">6</weight>
             <weight targetnode="56">8</weight>
@@ -837,7 +808,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="24">
-            <weight targetnode="25">3</weight>
+            <weight targetnode="25">1</weight>
             <weight targetnode="26">6</weight>
             <weight targetnode="27">4</weight>
             <weight targetnode="28">8</weight>
@@ -887,7 +858,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="25">
-            <weight targetnode="26">7</weight>
+            <weight targetnode="26">1</weight>
             <weight targetnode="27">9</weight>
             <weight targetnode="29">7</weight>
             <weight targetnode="31">1</weight>
@@ -945,7 +916,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="26">
-            <weight targetnode="27">8</weight>
+            <weight targetnode="27">1</weight>
             <weight targetnode="28">4</weight>
             <weight targetnode="29">7</weight>
             <weight targetnode="30">3</weight>
@@ -986,7 +957,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="27">
-            <weight targetnode="28">5</weight>
+            <weight targetnode="28">1</weight>
             <weight targetnode="29">4</weight>
             <weight targetnode="30">3</weight>
             <weight targetnode="31">4</weight>
@@ -1061,7 +1032,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="29">
-            <weight targetnode="30">9</weight>
+            <weight targetnode="30">1</weight>
             <weight targetnode="31">5</weight>
             <weight targetnode="32">7</weight>
             <weight targetnode="33">7</weight>
@@ -1109,7 +1080,7 @@
             <weight targetnode="78">4</weight>
         </node>        
         <node nodeidx="30">
-            <weight targetnode="31">5</weight>
+            <weight targetnode="31">1</weight>
             <weight targetnode="33">2</weight>
             <weight targetnode="34">6</weight>
             <weight targetnode="35">5</weight>
@@ -1145,7 +1116,7 @@
             <weight targetnode="99">5</weight>
         </node>        
         <node nodeidx="31">
-            <weight targetnode="32">8</weight>
+            <weight targetnode="32">1</weight>
             <weight targetnode="69">9</weight>
             <weight targetnode="70">5</weight>
             <weight targetnode="71">3</weight>
@@ -1179,7 +1150,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="32">
-            <weight targetnode="33">9</weight>
+            <weight targetnode="33">1</weight>
             <weight targetnode="34">4</weight>
             <weight targetnode="35">8</weight>
             <weight targetnode="36">7</weight>
@@ -1225,7 +1196,8 @@
             <weight targetnode="76">4</weight>
         </node>        
         <node nodeidx="33">
-            <weight targetnode="35">5</weight>
+        	<weight targetnode="34">1</weight>
+            <weight targetnode="35">1</weight>
             <weight targetnode="36">5</weight>
             <weight targetnode="37">3</weight>
             <weight targetnode="38">5</weight>
@@ -1271,7 +1243,8 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="34">
-            <weight targetnode="65">4</weight>
+        	<weight targetnode="35">1</weight>
+            <weight targetnode="65">1</weight>
             <weight targetnode="66">1</weight>
             <weight targetnode="67">5</weight>
             <weight targetnode="68">8</weight>
@@ -1306,7 +1279,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="35">
-            <weight targetnode="36">6</weight>
+            <weight targetnode="36">1</weight>
             <weight targetnode="37">9</weight>
             <weight targetnode="38">5</weight>
             <weight targetnode="39">7</weight>
@@ -1338,7 +1311,7 @@
             <weight targetnode="100">8</weight>
         </node>        
         <node nodeidx="36">
-            <weight targetnode="37">6</weight>
+            <weight targetnode="37">1</weight>
             <weight targetnode="39">9</weight>
             <weight targetnode="41">2</weight>
             <weight targetnode="43">2</weight>
@@ -1357,7 +1330,8 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="37">
-            <weight targetnode="39">4</weight>
+        	<weight targetnode="38">1</weight>
+            <weight targetnode="39">1</weight>
             <weight targetnode="40">8</weight>
             <weight targetnode="41">3</weight>
             <weight targetnode="53">4</weight>
@@ -1388,7 +1362,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="38">
-            <weight targetnode="39">4</weight>
+            <weight targetnode="39">1</weight>
             <weight targetnode="69">6</weight>
             <weight targetnode="70">3</weight>
             <weight targetnode="71">9</weight>
@@ -1421,7 +1395,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="39">
-            <weight targetnode="40">6</weight>
+            <weight targetnode="40">1</weight>
             <weight targetnode="42">9</weight>
             <weight targetnode="43">6</weight>
             <weight targetnode="44">6</weight>
@@ -1457,7 +1431,8 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="40">
-            <weight targetnode="42">3</weight>
+        	<weight targetnode="41">1</weight>
+            <weight targetnode="42">1</weight>
             <weight targetnode="43">5</weight>
             <weight targetnode="44">4</weight>
             <weight targetnode="46">1</weight>
@@ -1493,7 +1468,8 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="41">
-            <weight targetnode="44">7</weight>
+        	<weight targetnode="42">1</weight>
+            <weight targetnode="44">1</weight>
             <weight targetnode="45">7</weight>
             <weight targetnode="46">8</weight>
             <weight targetnode="47">6</weight>
@@ -1526,7 +1502,7 @@
             <weight targetnode="99">3</weight>
         </node>        
         <node nodeidx="42">
-            <weight targetnode="43">5</weight>
+            <weight targetnode="43">1</weight>
             <weight targetnode="44">4</weight>
             <weight targetnode="45">6</weight>
             <weight targetnode="46">5</weight>
@@ -1566,7 +1542,7 @@
             <weight targetnode="84">7</weight>
         </node>        
         <node nodeidx="43">
-            <weight targetnode="44">8</weight>
+            <weight targetnode="44">1</weight>
             <weight targetnode="45">5</weight>
             <weight targetnode="46">2</weight>
             <weight targetnode="47">7</weight>
@@ -1591,7 +1567,8 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="44">
-            <weight targetnode="46">5</weight>
+        	<weight targetnode="45">1</weight>
+            <weight targetnode="46">1</weight>
             <weight targetnode="47">8</weight>
             <weight targetnode="48">8</weight>
             <weight targetnode="49">3</weight>
@@ -1650,7 +1627,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="46">
-            <weight targetnode="47">8</weight>
+            <weight targetnode="47">1</weight>
             <weight targetnode="48">2</weight>
             <weight targetnode="49">2</weight>
             <weight targetnode="50">4</weight>
@@ -1681,7 +1658,7 @@
             <weight targetnode="100">5</weight>
         </node>        
         <node nodeidx="47">
-            <weight targetnode="48">4</weight>
+            <weight targetnode="48">1</weight>
             <weight targetnode="49">8</weight>
             <weight targetnode="50">9</weight>
             <weight targetnode="51">7</weight>
@@ -1705,7 +1682,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="48">
-            <weight targetnode="49">6</weight>
+            <weight targetnode="49">1</weight>
             <weight targetnode="51">8</weight>
             <weight targetnode="52">6</weight>
             <weight targetnode="54">6</weight>
@@ -1732,7 +1709,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="49">
-            <weight targetnode="50">4</weight>
+            <weight targetnode="50">1</weight>
             <weight targetnode="51">8</weight>
             <weight targetnode="52">2</weight>
             <weight targetnode="53">5</weight>
@@ -1753,7 +1730,8 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="50">
-            <weight targetnode="60">9</weight>
+        	<weight targetnode="51">1</weight>
+            <weight targetnode="60">1</weight>
             <weight targetnode="61">1</weight>
             <weight targetnode="62">5</weight>
             <weight targetnode="63">3</weight>
@@ -1782,7 +1760,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="51">
-            <weight targetnode="52">9</weight>
+            <weight targetnode="52">1</weight>
             <weight targetnode="53">7</weight>
             <weight targetnode="54">3</weight>
             <weight targetnode="55">9</weight>
@@ -1816,6 +1794,7 @@
             <weight targetnode="99">5</weight>
         </node>        
         <node nodeidx="52">
+        	<weight targetnode="53">1</weight>
             <weight targetnode="54">1</weight>
             <weight targetnode="55">4</weight>
             <weight targetnode="56">7</weight>
@@ -1851,7 +1830,7 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="53">
-            <weight targetnode="54">9</weight>
+            <weight targetnode="54">1</weight>
             <weight targetnode="55">2</weight>
             <weight targetnode="59">3</weight>
             <weight targetnode="60">5</weight>
@@ -1919,7 +1898,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="55">
-            <weight targetnode="56">4</weight>
+            <weight targetnode="56">1</weight>
             <weight targetnode="57">6</weight>
             <weight targetnode="58">5</weight>
             <weight targetnode="59">4</weight>
@@ -1954,7 +1933,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="56">
-            <weight targetnode="57">3</weight>
+            <weight targetnode="57">1</weight>
             <weight targetnode="58">7</weight>
             <weight targetnode="59">3</weight>
             <weight targetnode="60">2</weight>
@@ -1998,7 +1977,7 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="57">
-            <weight targetnode="58">7</weight>
+            <weight targetnode="58">1</weight>
             <weight targetnode="75">5</weight>
             <weight targetnode="76">3</weight>
             <weight targetnode="77">4</weight>
@@ -2025,7 +2004,8 @@
             <weight targetnode="100">5</weight>
         </node>        
         <node nodeidx="58">
-            <weight targetnode="60">8</weight>
+        	<weight targetnode="59">1</weight>
+            <weight targetnode="60">1</weight>
             <weight targetnode="61">5</weight>
             <weight targetnode="62">3</weight>
             <weight targetnode="63">6</weight>
@@ -2049,7 +2029,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="59">
-            <weight targetnode="60">3</weight>
+            <weight targetnode="60">1</weight>
             <weight targetnode="61">6</weight>
             <weight targetnode="62">3</weight>
             <weight targetnode="63">6</weight>
@@ -2068,7 +2048,7 @@
             <weight targetnode="99">7</weight>
         </node>        
         <node nodeidx="60">
-            <weight targetnode="61">3</weight>
+            <weight targetnode="61">1</weight>
             <weight targetnode="62">3</weight>
             <weight targetnode="64">9</weight>
             <weight targetnode="65">1</weight>
@@ -2081,7 +2061,7 @@
             <weight targetnode="98">9</weight>
         </node>        
         <node nodeidx="61">
-            <weight targetnode="62">6</weight>
+            <weight targetnode="62">1</weight>
             <weight targetnode="63">6</weight>
             <weight targetnode="64">5</weight>
             <weight targetnode="65">6</weight>
@@ -2102,7 +2082,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="62">
-            <weight targetnode="63">5</weight>
+            <weight targetnode="63">1</weight>
             <weight targetnode="64">4</weight>
             <weight targetnode="66">8</weight>
             <weight targetnode="67">4</weight>
@@ -2116,7 +2096,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="63">
-            <weight targetnode="64">6</weight>
+            <weight targetnode="64">1</weight>
             <weight targetnode="66">5</weight>
             <weight targetnode="67">4</weight>
             <weight targetnode="68">8</weight>
@@ -2139,7 +2119,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="64">
-            <weight targetnode="65">4</weight>
+            <weight targetnode="65">1</weight>
             <weight targetnode="66">3</weight>
             <weight targetnode="67">7</weight>
             <weight targetnode="68">7</weight>
@@ -2160,7 +2140,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="65">
-            <weight targetnode="66">8</weight>
+            <weight targetnode="66">1</weight>
             <weight targetnode="67">9</weight>
             <weight targetnode="68">3</weight>
             <weight targetnode="69">8</weight>
@@ -2175,7 +2155,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="66">
-            <weight targetnode="67">6</weight>
+            <weight targetnode="67">1</weight>
             <weight targetnode="68">4</weight>
             <weight targetnode="69">7</weight>
             <weight targetnode="70">9</weight>
@@ -2192,7 +2172,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="67">
-            <weight targetnode="68">7</weight>
+            <weight targetnode="68">1</weight>
             <weight targetnode="69">1</weight>
             <weight targetnode="70">9</weight>
             <weight targetnode="96">6</weight>
@@ -2201,7 +2181,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="68">
-            <weight targetnode="69">7</weight>
+            <weight targetnode="69">1</weight>
             <weight targetnode="70">6</weight>
             <weight targetnode="71">4</weight>
             <weight targetnode="72">2</weight>
@@ -2221,7 +2201,7 @@
             <weight targetnode="100">5</weight>
         </node>        
         <node nodeidx="69">
-            <weight targetnode="70">8</weight>
+            <weight targetnode="70">1</weight>
             <weight targetnode="72">7</weight>
             <weight targetnode="73">6</weight>
             <weight targetnode="74">3</weight>
@@ -2237,7 +2217,8 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="70">
-            <weight targetnode="72">8</weight>
+        	<weight targetnode="71">1</weight>
+            <weight targetnode="72">1</weight>
             <weight targetnode="73">8</weight>
             <weight targetnode="74">2</weight>
             <weight targetnode="75">7</weight>
@@ -2253,7 +2234,7 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="71">
-            <weight targetnode="72">5</weight>
+            <weight targetnode="72">1</weight>
             <weight targetnode="75">7</weight>
             <weight targetnode="76">2</weight>
             <weight targetnode="86">6</weight>
@@ -2273,7 +2254,7 @@
             <weight targetnode="100">8</weight>
         </node>        
         <node nodeidx="72">
-            <weight targetnode="73">9</weight>
+            <weight targetnode="73">1</weight>
             <weight targetnode="74">2</weight>
             <weight targetnode="75">9</weight>
             <weight targetnode="77">4</weight>
@@ -2289,7 +2270,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="73">
-            <weight targetnode="74">2</weight>
+            <weight targetnode="74">1</weight>
             <weight targetnode="75">8</weight>
             <weight targetnode="76">8</weight>
             <weight targetnode="77">5</weight>
@@ -2302,7 +2283,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="74">
-            <weight targetnode="75">3</weight>
+            <weight targetnode="75">1</weight>
             <weight targetnode="76">6</weight>
             <weight targetnode="77">5</weight>
             <weight targetnode="78">8</weight>
@@ -2315,7 +2296,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="75">
-            <weight targetnode="76">4</weight>
+            <weight targetnode="76">1</weight>
             <weight targetnode="77">1</weight>
             <weight targetnode="78">8</weight>
             <weight targetnode="79">4</weight>
@@ -2335,7 +2316,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="76">
-            <weight targetnode="77">6</weight>
+            <weight targetnode="77">1</weight>
             <weight targetnode="78">3</weight>
             <weight targetnode="79">1</weight>
             <weight targetnode="80">3</weight>
@@ -2350,7 +2331,7 @@
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="77">
-            <weight targetnode="78">6</weight>
+            <weight targetnode="78">1</weight>
             <weight targetnode="79">8</weight>
             <weight targetnode="80">1</weight>
             <weight targetnode="81">2</weight>
@@ -2374,7 +2355,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="78">
-            <weight targetnode="79">9</weight>
+            <weight targetnode="79">1</weight>
             <weight targetnode="80">1</weight>
             <weight targetnode="81">2</weight>
             <weight targetnode="82">1</weight>
@@ -2394,7 +2375,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="79">
-            <weight targetnode="80">7</weight>
+            <weight targetnode="80">1</weight>
             <weight targetnode="81">5</weight>
             <weight targetnode="82">5</weight>
             <weight targetnode="83">4</weight>
@@ -2415,7 +2396,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="80">
-            <weight targetnode="81">3</weight>
+            <weight targetnode="81">1</weight>
             <weight targetnode="82">8</weight>
             <weight targetnode="84">9</weight>
             <weight targetnode="85">5</weight>
@@ -2435,7 +2416,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="81">
-            <weight targetnode="82">6</weight>
+            <weight targetnode="82">1</weight>
             <weight targetnode="83">2</weight>
             <weight targetnode="84">2</weight>
             <weight targetnode="85">2</weight>
@@ -2454,7 +2435,7 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="82">
-            <weight targetnode="83">2</weight>
+            <weight targetnode="83">1</weight>
             <weight targetnode="84">2</weight>
             <weight targetnode="85">1</weight>
             <weight targetnode="87">7</weight>
@@ -2472,7 +2453,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="83">
-            <weight targetnode="84">2</weight>
+            <weight targetnode="84">1</weight>
             <weight targetnode="85">5</weight>
             <weight targetnode="86">1</weight>
             <weight targetnode="87">1</weight>
@@ -2488,7 +2469,7 @@
             <weight targetnode="99">8</weight>
         </node>        
         <node nodeidx="84">
-            <weight targetnode="85">2</weight>
+            <weight targetnode="85">1</weight>
             <weight targetnode="86">4</weight>
             <weight targetnode="87">3</weight>
             <weight targetnode="88">5</weight>
@@ -2506,7 +2487,7 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="85">
-            <weight targetnode="86">9</weight>
+            <weight targetnode="86">1</weight>
             <weight targetnode="87">3</weight>
             <weight targetnode="88">3</weight>
             <weight targetnode="89">2</weight>
@@ -2522,7 +2503,8 @@
             <weight targetnode="100">1</weight>
         </node>        
         <node nodeidx="86">
-            <weight targetnode="88">3</weight>
+        	<weight targetnode="87">1</weight>
+            <weight targetnode="88">1</weight>
             <weight targetnode="89">7</weight>
             <weight targetnode="90">1</weight>
             <weight targetnode="91">1</weight>
@@ -2534,7 +2516,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="87">
-            <weight targetnode="88">2</weight>
+            <weight targetnode="88">1</weight>
             <weight targetnode="89">3</weight>
             <weight targetnode="90">6</weight>
             <weight targetnode="91">5</weight>
@@ -2549,7 +2531,7 @@
             <weight targetnode="100">7</weight>
         </node>        
         <node nodeidx="88">
-            <weight targetnode="89">6</weight>
+            <weight targetnode="89">1</weight>
             <weight targetnode="90">1</weight>
             <weight targetnode="91">1</weight>
             <weight targetnode="92">9</weight>
@@ -2562,7 +2544,7 @@
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="89">
-            <weight targetnode="90">2</weight>
+            <weight targetnode="90">1</weight>
             <weight targetnode="91">3</weight>
             <weight targetnode="92">6</weight>
             <weight targetnode="93">8</weight>
@@ -2575,7 +2557,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="90">
-            <weight targetnode="91">8</weight>
+            <weight targetnode="91">1</weight>
             <weight targetnode="92">5</weight>
             <weight targetnode="93">6</weight>
             <weight targetnode="94">9</weight>
@@ -2586,7 +2568,7 @@
             <weight targetnode="100">4</weight>
         </node>        
         <node nodeidx="91">
-            <weight targetnode="92">6</weight>
+            <weight targetnode="92">1</weight>
             <weight targetnode="93">4</weight>
             <weight targetnode="94">9</weight>
             <weight targetnode="95">3</weight>
@@ -2596,8 +2578,8 @@
             <weight targetnode="100">3</weight>
         </node>        
         <node nodeidx="92">
-            <weight targetnode="93">5</weight>
-            <weight targetnode="94">8</weight>
+            <weight targetnode="93">1</weight>
+            <weight targetnode="94">1</weight>
             <weight targetnode="95">9</weight>
             <weight targetnode="96">5</weight>
             <weight targetnode="97">2</weight>
@@ -2606,7 +2588,7 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="93">
-            <weight targetnode="94">8</weight>
+            <weight targetnode="94">1</weight>
             <weight targetnode="96">4</weight>
             <weight targetnode="97">2</weight>
             <weight targetnode="98">4</weight>
@@ -2614,33 +2596,33 @@
             <weight targetnode="100">6</weight>
         </node>        
         <node nodeidx="94">
-            <weight targetnode="95">7</weight>
+            <weight targetnode="95">1</weight>
             <weight targetnode="97">9</weight>
             <weight targetnode="98">5</weight>
             <weight targetnode="99">2</weight>
         </node>        
         <node nodeidx="95">
-            <weight targetnode="96">6</weight>
+            <weight targetnode="96">1</weight>
             <weight targetnode="97">4</weight>
             <weight targetnode="98">4</weight>
             <weight targetnode="99">3</weight>
             <weight targetnode="100">5</weight>
         </node>        
         <node nodeidx="96">
-            <weight targetnode="97">2</weight>
+            <weight targetnode="97">1</weight>
             <weight targetnode="98">7</weight>
             <weight targetnode="99">9</weight>
             <weight targetnode="100">9</weight>
         </node>        
         <node nodeidx="97">
-            <weight targetnode="98">5</weight>
+            <weight targetnode="98">1</weight>
             <weight targetnode="99">8</weight>
             <weight targetnode="100">8</weight>
         </node>        
         <node nodeidx="98">
-            <weight targetnode="99">9</weight>
+            <weight targetnode="99">1</weight>
             <weight targetnode="100">2</weight>
         </node>        
         <node nodeidx="99">
-            <weight targetnode="100">3</weight>
-        </node>    </graph>    <events>        <move alpha="1.0" beta="1.0" delta="0.2"/>        <evaporation eta="2.0" rho="10.0"/>    </events></simulation>
+            <weight targetnode="100">1</weight>
+        </node>    </graph>    <events>        <move alpha="1.0" beta="1.0" delta="0.001"/>        <evaporation eta="2.0" rho="1.0"/>    </events></simulation>

@@ -65,7 +65,6 @@ public class ColonySimulator {
 		try {
 			dados.validatedata();
 		} catch (WrongXLMvalue ex) {
-			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			System.exit(1);
 		}
@@ -122,17 +121,19 @@ public class ColonySimulator {
 		
 		double currentTime = currentEvent.time_stamp;
 		
+		Ant current_ant;
+		
 		while (currentTime < dados.getFinalinst()) {
 			
 			if (currentEvent instanceof EvAnt_Move) {
 				
 				currentEvent.simulate();
 				
-				Ant current_ant = (Ant) ((EvAnt_Move) currentEvent).getAnt();
+				current_ant = ((EvAnt_Move) currentEvent).getAnt();
 				
 				if(current_ant.getPath().hasHamiltonCycle()) {
 					
-					try {
+					
 						currentPathWeight = current_ant.getPath().getTotalPathWeight();
 						current_ant.placingPheroSetEvents(currentPathWeight, currentTime );
 						
@@ -141,29 +142,18 @@ public class ColonySimulator {
 							current_ant.getPath().getPathWeights().remove(dados.getNbNodes()-1);
 							report.setHamilton((List<Integer>) deepClone(current_ant.getPath().getVisited()));
 						}
-					}
 					
-					catch (NonPositive ex) {
-						System.out.println("Path weight cannot be negative");
-						System.exit(1);
-					}
 					
 					current_ant.getPath().removeCycle();
-					
-					try {
 						int newNextNode = current_ant.chooseNextNode();
 						
 						int weight = grafo.getEdge(current_ant.getPath().getCurrentNode(), newNextNode).getWeight();
 						
 						double t = currentTime + Event.expRandom(dados.getDelta() * weight );
-							if(t<dados.getFinalinst())
+							if(t<dados.getFinalinst()) {
 								pec.addEvPEC(new EvAnt_Move(t, current_ant, newNextNode));
-					}
+							}
 					
-					catch (EdgeNextMoveException ex) {
-						System.out.println(ex.getMessage());
-						System.exit(-1);
-					}
 					
 				}
 				report.updateReport(currentEvent);
