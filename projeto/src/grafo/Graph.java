@@ -14,7 +14,7 @@ import java.util.LinkedList;
  * The indexes of the ArrayList represents the nodes of the graph. In the LinkedLists the edges
  * are stored.
  * 
- * @author Joao Lopes
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
 

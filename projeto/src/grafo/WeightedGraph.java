@@ -9,7 +9,7 @@ import exceptions.NonPositive;
  * Interface of a Weighted Graph. A weighted graph is a graph where its nodes are connected
  * through edges with a certain weight.
  * 
- * @author Joao Lopes
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
 
@@ -21,7 +21,6 @@ public interface WeightedGraph {
 	 * @param source is the source node
 	 * @param target is the target node
 	 * @param weight is the weight of the connection
-	 * @throws NonPositive throws exception when the weigh in negative
 	 */
 	public void addEdge(int source, int target, int weight); 
 	
@@ -33,15 +32,15 @@ public interface WeightedGraph {
 	
 	/**
 	 * Has as input two nodes and removes the edge between them 
-	 * @param the first node
-	 * @param the second node
+	 * @param p the first node
+	 * @param f the second node
 	 */
 	public void removeEdge (int p, int f);
 	
 	/**
 	 * Has as input a node and returns his neighbors
-	 * @param f the node
-	 * @return the list of nodes with a connection to f
+	 * @param f is the node that we want to know the adjacent edges
+	 * @return  the list of nodes with a connection to f
 	 */
 	
 	public LinkedList<Edge> adjacentEdges(int f);

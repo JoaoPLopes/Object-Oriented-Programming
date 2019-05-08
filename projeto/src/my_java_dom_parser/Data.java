@@ -5,6 +5,14 @@ import java.util.List;
 
 import exceptions.WrongXLMvalue;
 
+/**
+ *  Class: Data.Java
+ *  
+ *  This class implements the XmlData.Java interface. It stores all the information read in XML file in static fields.
+ * 
+ *  @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
+ *
+ */
 public class Data implements XmlData {
 	static int nbnodes;
 	static int nestnode;
@@ -14,6 +22,15 @@ public class Data implements XmlData {
 	static Evaporation evap;
 	static int graphweight;
 	
+	/**
+	 * Constructor of the object Data. It recieves as parameters the information from the xml
+	 * @param nb is the number of graph nodes
+	 * @param nest in the nest node
+	 * @param ed is a list of all the graph edges
+	 * @param m is an object with all the information regarding the move event
+	 * @param s is an object with all the information regarding the simulation
+	 * @param e is an object with all the information regarding the evaportaion
+	 */
 	Data(int nb, int nest, List<Weights> ed, Move m, Simulation s, Evaporation e){
 		nbnodes = nb;
 		nestnode  = nest;
@@ -23,74 +40,142 @@ public class Data implements XmlData {
 		evap = e;
 	}
 	
+	/**
+	 * getter method of the number of graph nodes read from the file
+	 * @return the number of graph nodes
+	 */
 	public int getNbNodes() {
 		return nbnodes;
 	}
 	
+	/**
+	 * getter method of the graph nest node read from the file
+	 * @return the graph nest node
+	 */
 	public int getNest() {
 		return nestnode;
 	}
 	
+	/**
+	 * getter method of the parameters regarding the ant move read from the file
+	 * @return an object containing all the elements regarding the ant move
+	 */
 	public Move getMove() {
 		return move;
 	}
 	
+	/**
+	 * getter method of the delta parameter read from the file
+	 * @return the delta from the file
+	 */
 	public double getDelta() {
 		return getMove().getDelta();
 	}
 	
+	/**
+	 * getter method of the alpha parameter read from the file
+	 * @return the alpha from the file
+	 */
 	public double getAlpha() {
 		return getMove().getAlpha();
 	}
 	
+	
+	/**
+	 * getter method of the beta parameter read from the file
+	 * @return the beta from the file
+	 */
 	public double getBeta() {
 		return getMove().getbeta();
 	}
 	
+	/**
+	 * getter method of the parameters regarding the simulation read from the file
+	 * @return an object containing all the elements regarding the simulation
+	 */
 	public Simulation getSimulation() {
 		return sim;
 	}
 	
+	/**
+	 * getter method of the final instant of the simulation read from the file
+	 * @return the final instant of the simulation
+	 */
 	public double getFinalinst() {
 		return getSimulation().getFinalinst();
 	}
 	
+	/**
+	 * getter method of the plevel parameter read from the file
+	 * @return the plevel from the file
+	 */
 	public float getpLevel() {
 		return getSimulation().getPlevel();
 	}
 	
+	/**
+	 * getter method of the colony size of the simulation read from the file
+	 * @return the colony size of the simulation
+	 */
 	public float getColonySize() {
 		return getSimulation().getColonySize();
 	}
 	
+	/**
+	 * getter method of the edges that are stored in the file
+	 * @return a list with the edges stored in the and their weights
+	 */
 	@Override
 	public List<Weights> getEdges() {		
 		return edges;
 	}
 	
 
+	/**
+	 * getter method of the parameters regarding the Evaporation Events read from the file
+	 * @return an object containing all the elements regarding the Evaporation Events
+	 */
 	@Override
 	public Evaporation getEvaporation() {
 		return evap;
 	}
 	
+	/**
+	 * getter method of the rho parameter read from the file
+	 * @return the rho from the file
+	 */
 	public float getRho() {
 		return getEvaporation().getRho();
 	}
 	
+	/**
+	 * getter method of the eta parameter read from the file
+	 * @return the eta from the file
+	 */
 	public float getEta() {
 		return getEvaporation().getEta();
 	}
 	
+	/**
+	 * method used to compute the sum of the total graph weight. The total graph weight is the sum of the weights of all edges in the graph
+	 *@param currentWeight is the weight of the current edge to be added
+	 */
 	public void addGraphWeight(int currentWeight) {
 		graphweight+=currentWeight;
 	}
 	
+	/**
+	 * getter method of the edges that are stored in the file
+	 * @return a list with the edges stored in the and their weights
+	 */
 	public int getGraphWeight() {
 		return graphweight;
 	}
 	
-	
+	/**
+	 * Validatedata() is a method used to check if the values read from the File are valid
+	 * @throws WrongXLMvalue if one of the values from the file is incorrect
+	 */
 	public void validatedata() throws WrongXLMvalue {
 		
 		boolean validationnestnode=false;
@@ -177,9 +262,11 @@ public class Data implements XmlData {
 			throw new WrongXLMvalue("Colony size should be greater than 0");
 		}
 		
-}
+	}
 	
-	
+    /**
+     * @see java.lang.Object#toString()
+     */
 	@Override
 	public String toString() {
 		return "Graph nbnodes=" + nbnodes + ", nestnode=" + nestnode + "\n" + edges + "\n" + move + "\n" + evap + "\n" + sim;

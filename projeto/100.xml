@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE simulation SYSTEM "simulation.dtd">
-<simulation finalinst="300.0" antcolsize="100" plevel="0.5">
+<simulation finalinst="1000.0" antcolsize="100" plevel="0.5">
 <graph nbnodes="100" nestnode="1">
 	<node nodeidx="1">
-		<weight targetnode="2">1</weight>
+		<weight targetnode="2">10</weight>
 		<weight targetnode="3">1</weight>
 		<weight targetnode="4">1</weight>
 		<weight targetnode="5">1</weight>

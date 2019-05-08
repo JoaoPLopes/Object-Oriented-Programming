@@ -1,6 +1,5 @@
 package simulator;
 
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
@@ -18,7 +17,24 @@ import my_java_dom_parser.Weights;
 import my_java_dom_parser.XmlData;
 
 
-
+/**
+ * Class: Ant.java
+ * 
+ * This class has the Ant Colony Simulator. The Simulator is the main method of this class and consists in a cycle where 
+ * in each iteration it is simulated the next event in the PEC.
+ * 
+ * The Simulator is running while the simulation time is lower than the final instant given by the XML parameters.
+ * This class has as static fields the data from the XML file, the PEC, a list of ants and the graph. It also has 
+ * as static field the simulation time and the number of times the observations are going to be printed.
+ * 
+ * In the main method the sequence of operations are. First the XML file is read than a graph is created with the XML information. 
+ * Also with the XML information an Ant Colony is created. An ant colony consists in a LinkedList of objects Ant. Finally the
+ * simulation begins. As explained before the simulation is a while loop that simulates the next event in the PEC and stops when the 
+ * simulation time reaches the final instant from the XML file
+ * 
+ * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
+ *
+ */
 public class ColonySimulator {
 	
 	protected static int antcolsize;
@@ -34,7 +50,13 @@ public class ColonySimulator {
 	static double reportincrements;
 	static double time;
 	
-
+	/**
+	 * The main mehtod is the Simulator. A simulation is a while loop that simulates the next event in the PEC and stops when the 
+	 * simulation time reaches the final instant from the XML file.
+	 * 
+	 * 
+	 * @param args is an XML file with a description of the parameters of the simulator as well as the graph.
+	 */
 	public static void main(String[] args) {
 		
 		
@@ -170,6 +192,16 @@ public class ColonySimulator {
 		report.updateinstant();
 		System.out.println(pec);
 	}
+	
+	
+	/**
+	 *
+	 * Static method used in this class to copy the value of an object to another. Only the value of the object is 
+	 * passed not the reference.
+	 * 
+	 * @param object is an object which value we want to pass to other object.
+	 * @return the value of the object
+	 */
 	
 	public static Object deepClone(Object object) {
 	    try {

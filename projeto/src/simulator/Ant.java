@@ -12,6 +12,7 @@ import grafo.Edge;
  * This class implements the Traverser interface.
  * An Ant is associated to an object graph. It can move in his graph nodes.
  * The ant stores its current node as the previous visited nodes.
+ * 
  * @author Joao Lopes, Gonçalo Carvalho, Alessio Vacca
  *
  */
